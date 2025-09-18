@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/piloto.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto.html" afterDir="false" />
-    </list>
+    <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +30,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "prac2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758195071907</updated>
-      <workItem from="1758195073680" duration="4411000" />
+      <workItem from="1758195073680" duration="4827000" />
     </task>
     <servers />
   </component>
