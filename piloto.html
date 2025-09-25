@@ -10,10 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MotoGP-Piloto</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
+    <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon"/>
 </head>
 
 <body>
-<h1>Moto GP Desktop</h1>
+<header>
+<h1><a href="index.html">Moto GP Desktop</a></h1>
 <nav>
     <a href="index.html">Inicio</a>
     <a href="piloto.html">Piloto</a>
@@ -23,8 +25,17 @@
     <a href="juegos.html">Juegos</a>
     <a href="ayuda.html">Ayuda</a>
 </nav>
+</header>
 <!-- 294024 % 22 = 16 + 1 = 17 -->
 <h2>Conoce a Luca Marini</h2>
+<!-- Establecemos las imagenes acorde al tamaño. La de tablet es más grande que la de Desktop a propósito -->
+<picture>
+    <source media="(max-width: 465px)" srcset="multimedia/img/LucaMariniPhone.png" type="image/png">
+    <source media="(max-width:799px)" srcset="multimedia/img/LucaMariniTablet.png" type="image/png">
+    <source media="(min-width:800px)" srcset="multimedia/img/LucaMariniDesktop.png" type="image/png">
+    <img src="multimedia/img/LucaMariniDesktop.png" alt="Luca Marini">
+</picture>
+<!-- Descripcion breve del piloto -->
 <p>Luca Marini es piloto de MotoGP y hermano menor de la leyenda Valentino Rossi. Con títulos destacados en categorías inferiores, como subcampeón del Mundial de Moto2 en 2020, ha dado el salto a la categoría reina mostrando solidez y ambición. A sus 27 años, compite con el objetivo de consolidarse entre los grandes nombres del campeonato.</p>
 <!-- Datos técnicos -->
 <ul>

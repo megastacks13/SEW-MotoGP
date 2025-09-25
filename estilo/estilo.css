@@ -1,2 +1,15 @@
 /* Jaime Alonso Fernández - UO294024 */
 /* Estilos generales para al app MotoGP desktop*/
+
+body{
+    font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+}
+
+/*header{
+    background-color: #4c5355;
+    color: #F2F2F2;
+}
+nav{
+    background-color: #9E3337;
+    color: #FFFFFF;
+}*/
