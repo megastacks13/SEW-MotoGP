@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayuda.html" beforeDir="false" afterPath="$PROJECT_DIR$/ayuda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/circuito.html" beforeDir="false" afterPath="$PROJECT_DIR$/circuito.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clasificaciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/clasificaciones.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/estilo/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/estilo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegos.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metereologia.html" beforeDir="false" afterPath="$PROJECT_DIR$/metereologia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multimedia/img/LucaMariniDesktop.png" beforeDir="false" afterPath="$PROJECT_DIR$/multimedia/img/LucaMariniDesktop.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/piloto.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +65,7 @@
       <updated>1758195071907</updated>
       <workItem from="1758195073680" duration="5157000" />
       <workItem from="1758447578080" duration="162000" />
-      <workItem from="1758799187913" duration="3444000" />
+      <workItem from="1758799187913" duration="4138000" />
     </task>
     <servers />
   </component>
