@@ -3,13 +3,15 @@
 
 body{
     font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+    background-color: #cbcdcb;
 }
 
-/*header{
+header{
     background-color: #4c5355;
-    color: #F2F2F2;
+    color: #607d86;
 }
 nav{
     background-color: #9E3337;
     color: #FFFFFF;
-}*/
+}
+
