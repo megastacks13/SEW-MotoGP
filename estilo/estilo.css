@@ -1,20 +1,21 @@
 /* Jaime Alonso Fernández - UO294024 */
 /* Estilos generales para al app MotoGP desktop*/
 
-/* Especificidad (0, 0, 1) -> 1 elemento */
+/* Especificidad (0, 0, 1) */
 body{
     font-family: "Calisto MT", "Bitstream Charter", monospace;
     background-color: #f5f5f5;
     color: #333138;
 }
 
-/* Especificidad (0, 0, 1) -> 1 elemento */
+/* Especificidad (0, 0, 1) */
 header{
     background-color: #515052;
     color: #f5f5f5;
     text-align: center;
 }
 
+/* Especificidad (0, 0, 2) */
 header a{
     text-decoration-line:none;
     /* No hay duplicidades ya que por defecto los anchor establecen un color */
@@ -22,19 +23,59 @@ header a{
     /* Advertencia sobre herencia de color de fondo */
 }
 
-/* Especificidad (0, 0, 1) -> 1 elemento */
+
+/* Especificidad (0, 0, 1) */
 nav{
     background-color: #9E3337;
     color: #FFFFFF;
 }
 
-/* Especificidad (0, 1, 0) -> 1 clase*/
-.active{
-    /* Advertencia sobre herencia de color de fondo */
-    color: #333138;
-}
-
+/* Especificidad (0, 1, 0) */
 p:first-of-type:has(strong) {
     font-size:20px;
 }
+
+/* Especificidad (0, 1, 0) */
+.active{
+    font-weight: bold;
+    font-size:18px;
+    text-decoration-line: overline;
+}
+
+/* Especificidad (0, 1, 0) */
+aside:last-of-type{
+    background-color: #515052;
+    color: #f5f5f5;
+}
+
+/* Especificidad (0, 1, 1) */
+aside:last-of-type a{
+    /* Cambio de color al valor por defecto del contenedor para evitar errores de contraste */
+    color: inherit;
+    /* Advertencia sobre herencia de color de fondo */
+}
+
+/* Especificidad (0, 0, 1) */
+ul {
+    list-style-type: square;
+}
+
+/* Especificidad (0, 0, 1) */
+table, tr, th{
+    /* Advertencia no backgorund color */
+    color: #f5f5f5;
+    border-color:#000000;
+    border-style: solid;
+    border-collapse: collapse;
+    background-color: #9E3337;
+}
+
+
+/* Especificidad (0, 0, 1) */
+td{
+    /* Advertencia no foreground color */
+    background-color: #6c6c6d;
+    font-weight: bold;
+}
+
 

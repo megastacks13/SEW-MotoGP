@@ -1,34 +1,88 @@
+/* Jaime Alonso Fernández - UO294024 */
+/* Layout general para al app MotoGP desktop*/
 
+/* Especificidad (0, 0, 1) */
+body{
+    margin:0;
+}
 
+/* Especificidad (0, 0, 1) */
 header{
     display:flex;
     flex-direction:column;
 }
 
+/* Especificidad (0, 0, 1) */
 nav {
     display:flex;
     flex-direction:row;
     justify-content:space-around;
 }
 
+/* Especificidad (0, 0, 2) */
 nav a {
     margin:10px;
 }
 
+/* Especificidad (0, 1, 0) */
+p:first-of-type:has(strong) {
+    /* Despegamos las migas de pan del límite de la pantalla */
+    padding: 0 0 0 2em;
+}
+
+/* Especificidad (0, 0, 1) */
+section{
+    padding:0 15em;
+}
+
+/* Especificidad (0, 0, 2) */
+section section{
+    /* Corregimos el sobrepadding que se pueda dar */
+    padding: 0;
+}
+
+/* Especificidad (0, 1, 0) */
+aside:last-of-type{
+    text-align: center;
+    padding:4em;
+}
+
+/* Especificidad (0, 1, 1) */
+aside:last-of-type a{
+    margin: 0 10px;
+}
+
+/* Especificidad (0, 0, 1) */
+td{
+    width:8em;
+    text-align: center;
+}
+
+/* Especificidad (0, 0, 1) */
+th{
+    padding: 10px;
+}
+
 @media (min-width: 320px) and (max-width: 799px) {
+    /* Especificidad (0, 0, 1) */
     header{
         /* Advertencia de redefinición */
         flex-direction: column;
     }
+
+    /* Especificidad (0, 0, 1) */
     nav{
         /* Advertencia de redefinición */
         flex-direction: column;
     }
 
+    /* Especificidad (0, 0, 1) */
     p:first-of-type:has(strong) {
-        font-size:20px;
+        /* Eliminamos las migas en caso de que la pantalla sea muy pequeña */
+        display:none;
     }
 
+    /* Especificidad (0, 0, 1) aunque afecte a dos componentes, son independientes y no anidados */
     video,audio {
         width: 100%;
         height: auto;
