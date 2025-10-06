@@ -1,0 +1,37 @@
+
+
+header{
+    display:flex;
+    flex-direction:column;
+}
+
+nav {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
+
+nav a {
+    margin:10px;
+}
+
+@media (min-width: 320px) and (max-width: 799px) {
+    header{
+        /* Advertencia de redefinición */
+        flex-direction: column;
+    }
+    nav{
+        /* Advertencia de redefinición */
+        flex-direction: column;
+    }
+
+    p:first-of-type:has(strong) {
+        font-size:20px;
+    }
+
+    video,audio {
+        width: 100%;
+        height: auto;
+    }
+
+}

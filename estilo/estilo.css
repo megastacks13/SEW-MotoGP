@@ -1,22 +1,40 @@
 /* Jaime Alonso Fernández - UO294024 */
 /* Estilos generales para al app MotoGP desktop*/
 
-/* Especificidad (0, 0, 0, 1) -> 1 elemento */
+/* Especificidad (0, 0, 1) -> 1 elemento */
 body{
-    font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+    font-family: "Calisto MT", "Bitstream Charter", monospace;
     background-color: #f5f5f5;
     color: #333138;
 }
 
-/* Especificidad (0, 0, 0, 1) -> 1 elemento */
+/* Especificidad (0, 0, 1) -> 1 elemento */
 header{
     background-color: #515052;
     color: #f5f5f5;
+    text-align: center;
 }
 
-/* Especificidad (0, 0, 0, 1) -> 1 elemento */
+header a{
+    text-decoration-line:none;
+    /* No hay duplicidades ya que por defecto los anchor establecen un color */
+    color:inherit;
+    /* Advertencia sobre herencia de color de fondo */
+}
+
+/* Especificidad (0, 0, 1) -> 1 elemento */
 nav{
     background-color: #9E3337;
     color: #FFFFFF;
+}
+
+/* Especificidad (0, 1, 0) -> 1 clase*/
+.active{
+    /* Advertencia sobre herencia de color de fondo */
+    color: #333138;
+}
+
+p:first-of-type:has(strong) {
+    font-size:20px;
 }
 
