@@ -24,30 +24,24 @@ nav a {
     margin:10px;
 }
 
-/* Especificidad (0, 1, 0) */
-p:first-of-type:has(strong) {
+/* Especificidad (0, 1, 3) */
+body > p:first-of-type:has(strong) {
     /* Despegamos las migas de pan del límite de la pantalla */
     padding: 0 0 0 2em;
 }
 
 /* Especificidad (0, 0, 1) */
-section{
+main{
     padding:0 15em;
 }
 
-/* Especificidad (0, 0, 2) */
-section section{
-    /* Corregimos el sobrepadding que se pueda dar */
-    padding: 0;
-}
-
-/* Especificidad (0, 1, 0) */
-aside:last-of-type{
+/* Especificidad (0, 1, 2) */
+body > aside:last-child{
     text-align: center;
     padding:4em;
 }
 
-/* Especificidad (0, 1, 1) */
+/* Especificidad (0, 1, 2) */
 aside:last-of-type a{
     margin: 0 10px;
 }
@@ -76,7 +70,7 @@ th{
         flex-direction: column;
     }
 
-    /* Especificidad (0, 0, 1) */
+    /* Especificidad (0, 1, 2) */
     p:first-of-type:has(strong) {
         /* Eliminamos las migas en caso de que la pantalla sea muy pequeña */
         display:none;
