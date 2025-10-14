@@ -33,36 +33,99 @@
     
     <galerias>
         <galeriafotos>
-            <foto></foto>
-            <foto></foto>
-            <foto></foto>
-            <foto></foto>
-            <foto></foto>
+            <foto src="multimedia/img/motegi_skyview.jpg" alt="Foto desde el cielo de Motegi."/>
+            <foto src="multimedia/img/motegi_carps.jpg" alt="Foto de carpas en el pit de Motegi."/>
+            <foto src="multimedia/img/motegi_podium.jpg" alt="Foto del podium de Motegi."/>
+            <foto src="multimedia/img/motegi_race.jpg" alt="Foto de Motegi en competición."/>
+            <foto src="multimedia/img/motegi_entrance.jpg" alt="Foto de entrada en meta de un piloto haciendo un caballito."/>
         </galeriafotos>
         <galeriavideos>
-            <video></video>
-            <video></video>
-            <video></video>
+            <video src="multimedia/video/Motegi Race Highlights.mp4"/>
+            <video src="multimedia/video/First Turn Motegi 25.mp4"/>
+            <video src="multimedia/video/Motegi Sprint Start.mp4"/>
         </galeriavideos>
     </galerias>
     
     <plano>
         <!-- Punto Inicial -->
-        <punto longitud="" latitud="" altura=""/>
+        <punto longitud="140.2266254" latitud="36.5331544" altura="153.76"/>
 
         <!-- Tramos -->
         <tramos>
-            <tramo distancia="" numeroSector="" unidad="">
-                <punto longitud="" latitud="" altura=""/>
+            <tramo distancia="246.42" numeroSector="1" unidad="metros">
+                <punto longitud="140.2253702" latitud="36.5351305" altura="153.1"/>
             </tramo>
-            <tramo distancia="" numeroSector="" unidad="">
-                <punto longitud="" latitud="" altura=""/>
+            <tramo distancia="51.97" numeroSector="2" unidad="metros">
+                <punto longitud="140.2257488" latitud="36.5354854" altura="153.32"/>
             </tramo>
-            <tramo distancia="" numeroSector="" unidad="">
-                <punto longitud="" latitud="" altura=""/>
+            <tramo distancia="55.78" numeroSector="3" unidad="metros">
+                <punto longitud="140.2263676" latitud="36.5355433" altura="153.04"/>
             </tramo>
-            <tramo distancia="" numeroSector="" unidad="">
-                <punto longitud="" latitud="" altura=""/>
+            <tramo distancia="567.15" numeroSector="4" unidad="metros">
+                <punto longitud="140.2300680" latitud="36.5313955" altura="152.72"/>
+            </tramo>
+            <tramo distancia="35.58" numeroSector="5" unidad="metros">
+                <punto longitud="140.2304633" latitud="36.5314282" altura="153.29"/>
+            </tramo>
+            <tramo distancia="98.78" numeroSector="6" unidad="metros">
+                <punto longitud="140.2310973" latitud="36.5321566" altura="153.55"/>
+            </tramo>
+            <tramo distancia="59.35" numeroSector="7" unidad="metros">
+                <punto longitud="140.2308445" latitud="36.5326510" altura="152.92"/>
+            </tramo>
+            <tramo distancia="515.42" numeroSector="8" unidad="metros">
+                <punto longitud="140.2270096" latitud="36.5361145" altura="150.47"/>
+            </tramo>
+            <tramo distancia="36.17" numeroSector="9" unidad="metros">
+                <punto longitud="140.2272730" latitud="36.5363616" altura="149.65"/>
+            </tramo>
+            <tramo distancia="239.87" numeroSector="10" unidad="metros">
+                <punto longitud="140.2299473" latitud="36.5364852" altura="149.46"/>
+            </tramo>
+            <tramo distancia="77.03" numeroSector="11" unidad="metros">
+                <punto longitud="140.2306558" latitud="36.5360915" altura="149.82"/>
+            </tramo>
+            <tramo distancia="272.37" numeroSector="12" unidad="metros">
+                <punto longitud="140.2322311" latitud="36.5339919" altura="158.95"/>
+            </tramo>
+            <tramo distancia="34.32" numeroSector="13" unidad="metros">
+                <punto longitud="140.2325895" latitud="36.5338825" altura="160.31"/>
+            </tramo>
+            <tramo distancia="66.9" numeroSector="14" unidad="metros">
+                <punto longitud="140.2333110" latitud="36.5340389" altura="162.78"/>
+            </tramo>
+            <tramo distancia="55.18" numeroSector="15" unidad="metros">
+                <punto longitud="140.2339270" latitud="36.5340280" altura="165.94"/>
+            </tramo>
+            <tramo distancia="53.1" numeroSector="16" unidad="metros">
+                <punto longitud="140.2343220" latitud="36.5336711" altura="167.61"/>
+            </tramo>
+            <tramo distancia="240.19" numeroSector="17" unidad="metros">
+                <punto longitud="140.2343138" latitud="36.5315066" altura="168.83"/>
+            </tramo>
+            <tramo distancia="41.05" numeroSector="18" unidad="metros">
+                <punto longitud="140.2347526" latitud="36.5313996" altura="169.47"/>
+            </tramo>
+            <tramo distancia="395.29" numeroSector="19" unidad="metros">
+                <punto longitud="140.2381555" latitud="36.5336683" altura="177.75"/>
+            </tramo>
+            <tramo distancia="51.23" numeroSector="20" unidad="metros">
+                <punto longitud="140.2385699" latitud="36.5333500" altura="178.57"/>
+            </tramo>
+            <tramo distancia="803.94" numeroSector="21" unidad="metros">
+                <punto longitud="140.2319120" latitud="36.5284903" altura="154.07"/>
+            </tramo>
+            <tramo distancia="213.67" numeroSector="22" unidad="metros">
+                <punto longitud="140.2306018" latitud="36.5300994" altura="147.45"/>
+            </tramo>
+            <tramo distancia="117.84" numeroSector="23" unidad="metros">
+                <punto longitud="140.2293284" latitud="36.5303672" altura="150.29"/>
+            </tramo>
+            <tramo distancia="52.45" numeroSector="24" unidad="metros">
+                <punto longitud="140.2288407" latitud="36.5301055" altura="151.92"/>
+            </tramo>
+            <tramo distancia="392.2" numeroSector="25" unidad="metros">
+                <punto longitud="140.2266254" latitud="36.5331544" altura="153.76"/>
             </tramo>
         </tramos>
     </plano>

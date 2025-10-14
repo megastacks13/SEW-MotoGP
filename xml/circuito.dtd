@@ -1,5 +1,6 @@
 <?xml encoding="UTF-8"?>
 
+<!-- Padre -->
 <!ELEMENT circuito (nombre, geografía, dimensiones, carrera, resultados, rankingMundial, galerias, plano, bibliografía)>
 
 <!-- Especificaciones generales del circuito -->
@@ -25,7 +26,7 @@
 <!-- Resultados de carrera -->
 <!ELEMENT resultados (piloto, tiempo)>
 <!ELEMENT piloto (#PCDATA)>
-<!ATTLIST piloto puntos (#PCDATA)>
+<!ATTLIST piloto puntos CDATA "0">
 <!ELEMENT tiempo (#PCDATA)>
 <!ATTLIST tiempo unidad CDATA #REQUIRED>
 
@@ -35,23 +36,27 @@
 <!ELEMENT galerias (galeriafotos, galeriavideos)>
 <!-- Galería fotos -->
 <!ELEMENT galeriafotos (foto+)>
-<!ELEMENT foto (#PCDATA)>
+<!ELEMENT foto (EMPTY)>
+<!ATTLIST foto src CDATA #REQUIRED>
+<!ATTLIST foto alt CDATA "">
 
 <!-- Galería video -->
 <!ELEMENT galeriavideos (video+)>
-<!ELEMENT video (#PCDATA)>
+<!ELEMENT video (EMPTY)>
+<!ATTLIST video src CDATA #REQUIRED>
+<!ATTLIST video alt CDATA "">
 
 <!-- Plano -->
 <!ELEMENT plano (punto, tramos)>
 
-<!-- Puntos (origen y final de tramo) -->
+<!-- Puntos (origen y fin de tramo) -->
 <!ELEMENT punto EMPTY>
 <!ATTLIST punto longitud CDATA #REQUIRED>
 <!ATTLIST punto latitud CDATA #REQUIRED>
 <!ATTLIST punto altura CDATA #REQUIRED>
 
 <!ELEMENT tramos (tramo+)>
-<!-- Tramo -->
+<!-- Tramo (Incluye el punto de fin de tramo y empieza en el punto de tramo anterior)-->
 <!ELEMENT tramo (punto)>
 <!ATTLIST tramo numeroSector CDATA #REQUIRED>
 <!ATTLIST tramo distancia CDATA #REQUIRED>

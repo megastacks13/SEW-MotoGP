@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/xml/circuito.dtd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xml/circuito.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/img/motegi_carps.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/img/motegi_entrance.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/img/motegi_podium.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/img/motegi_race.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/img/motegi_skyview.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/video/First Turn Motegi 25.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/video/Motegi Race Highlights.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/multimedia/video/Motegi Sprint Start.mp4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml/arbol.svg" beforeDir="false" afterPath="$PROJECT_DIR$/xml/arbol.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml/circuito.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/xml/circuito.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml/circuito.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml/circuito.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +65,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-WS-252.26199.162" />
       </set>
     </attachedChunks>
   </component>
@@ -84,6 +93,7 @@
       <workItem from="1760008146627" duration="1779000" />
       <workItem from="1760009967317" duration="3880000" />
       <workItem from="1760013878400" duration="981000" />
+      <workItem from="1760444221609" duration="3540000" />
     </task>
     <servers />
   </component>
