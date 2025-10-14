@@ -37,13 +37,13 @@ main{
 }
 
 /* Especificidad (0, 1, 2) */
-body > aside:last-child{
+body > aside:last-of-type{
     text-align: center;
     padding:4em;
 }
 
 /* Especificidad (0, 1, 2) */
-aside:last-of-type a{
+body > aside:last-of-type a{
     margin: 0 10px;
 }
 

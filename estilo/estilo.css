@@ -44,13 +44,13 @@ body > p:first-of-type:has(strong) {
 }
 
 /* Especificidad (0, 1, 2) */
-body > aside:last-child{
+body > aside:last-of-type{
     background-color: #515052;
     color: #f5f5f5;
 }
 
 /* Especificidad (0, 1, 2) */
-aside:last-of-type a{
+body > aside:last-of-type a{
     /* Cambio de color al valor por defecto del contenedor para evitar errores de contraste */
     color: inherit;
     /* Advertencia sobre herencia de color de fondo */
