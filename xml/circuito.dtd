@@ -1,0 +1,63 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT circuito (nombre, geografía, dimensiones, carrera, resultados, rankingMundial, galerias, plano, bibliografía)>
+
+<!-- Especificaciones generales del circuito -->
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT geografía (pais, localidad)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT localidad (#PCDATA)>
+
+<!--Dimensiones del circuito -->
+<!ELEMENT dimensiones (longitud, anchura)>
+<!ELEMENT anchura (#PCDATA)>
+<!ATTLIST anchura unidades CDATA #REQUIRED>
+<!ELEMENT longitud (#PCDATA)>
+<!ATTLIST longitud unidades CDATA #REQUIRED>
+
+<!-- Especificaciones de carrera -->
+<!ELEMENT carrera (fecha, hora, vueltas, patrocinador)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hora (#PCDATA)>
+<!ELEMENT vueltas (#PCDATA)>
+<!ELEMENT patrocinador (#PCDATA)>
+
+<!-- Resultados de carrera -->
+<!ELEMENT resultados (piloto, tiempo)>
+<!ELEMENT piloto (#PCDATA)>
+<!ATTLIST piloto puntos (#PCDATA)>
+<!ELEMENT tiempo (#PCDATA)>
+<!ATTLIST tiempo unidad CDATA #REQUIRED>
+
+<!-- Estado del mundial post-carrera -->
+<!ELEMENT rankingMundial (piloto, piloto, piloto)>
+
+<!ELEMENT galerias (galeriafotos, galeriavideos)>
+<!-- Galería fotos -->
+<!ELEMENT galeriafotos (foto+)>
+<!ELEMENT foto (#PCDATA)>
+
+<!-- Galería video -->
+<!ELEMENT galeriavideos (video+)>
+<!ELEMENT video (#PCDATA)>
+
+<!-- Plano -->
+<!ELEMENT plano (punto, tramos)>
+
+<!-- Puntos (origen y final de tramo) -->
+<!ELEMENT punto EMPTY>
+<!ATTLIST punto longitud CDATA #REQUIRED>
+<!ATTLIST punto latitud CDATA #REQUIRED>
+<!ATTLIST punto altura CDATA #REQUIRED>
+
+<!ELEMENT tramos (tramo+)>
+<!-- Tramo -->
+<!ELEMENT tramo (punto)>
+<!ATTLIST tramo numeroSector CDATA #REQUIRED>
+<!ATTLIST tramo distancia CDATA #REQUIRED>
+<!ATTLIST tramo unidad CDATA #REQUIRED>
+
+
+<!-- Referencias -->
+<!ELEMENT bibliografía (referencia,referencia,referencia+)>
+<!ELEMENT referencia (#PCDATA)>

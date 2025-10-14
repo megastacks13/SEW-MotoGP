@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito>
+    <nombre>Mobility Resort Motegi</nombre>
+
+    <geografía>
+        <pais>Japón</pais>
+        <localidad>Motegi-machi</localidad>
+    </geografía>
+
+    <dimensiones>
+        <longitud unidades="metros">4800</longitud>
+        <anchura unidades="metros">10</anchura>
+    </dimensiones>
+
+    <carrera>
+        <fecha>28-09-2025</fecha>
+        <hora>07:00</hora>
+        <vueltas>24</vueltas>
+        <patrocinador>Motul</patrocinador>
+    </carrera>
+    
+    <resultados>
+        <piloto>Francesco Bagnaia</piloto>
+        <tiempo unidad="mm:ss.0000">42:09.312</tiempo>
+    </resultados>
+    
+    <rankingMundial>
+        <piloto puntos="541">Marc Marquez</piloto>
+        <piloto puntos="340">Alex Marquez</piloto>
+        <piloto puntos="274">Francesco Bagnaia</piloto>
+    </rankingMundial>
+    
+    <galerias>
+        <galeriafotos>
+            <foto></foto>
+            <foto></foto>
+            <foto></foto>
+            <foto></foto>
+            <foto></foto>
+        </galeriafotos>
+        <galeriavideos>
+            <video></video>
+            <video></video>
+            <video></video>
+        </galeriavideos>
+    </galerias>
+    
+    <plano>
+        <!-- Punto Inicial -->
+        <punto longitud="" latitud="" altura=""/>
+
+        <!-- Tramos -->
+        <tramos>
+            <tramo distancia="" numeroSector="" unidad="">
+                <punto longitud="" latitud="" altura=""/>
+            </tramo>
+            <tramo distancia="" numeroSector="" unidad="">
+                <punto longitud="" latitud="" altura=""/>
+            </tramo>
+            <tramo distancia="" numeroSector="" unidad="">
+                <punto longitud="" latitud="" altura=""/>
+            </tramo>
+            <tramo distancia="" numeroSector="" unidad="">
+                <punto longitud="" latitud="" altura=""/>
+            </tramo>
+        </tramos>
+    </plano>
+    
+    <bibliografía>
+        <referencia>https://www.mr-motegi.jp/eng/motogp</referencia>
+        <referencia>https://www.motogp.com/</referencia>
+        <referencia>https://es.wikipedia.org/wiki/Mobility_Resort_Moteg</referencia>
+    </bibliografía>
+
+</circuito>
