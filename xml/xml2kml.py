@@ -1,10 +1,13 @@
+import logging
+import typing
 import xml.etree.ElementTree as ET
 import sys
 
+NAMESPACE = {"c": "http://uniovi.es/circuito"}
 
-def getTree(fileXML):
+def get_tree(file_xml):
     try:
-        tree = ET.parse(fileXML)
+        tree = ET.parse(file_xml)
     except IOError:
         print("No se encuentra el archivo XML")
         exit()
@@ -13,29 +16,27 @@ def getTree(fileXML):
         exit()
     return tree
 
-def writeCoordinate(point:ET.Element, file):
+def write_coordinate(point:ET.Element, file:typing.TextIO):
     attributes = point.attrib
     latitude = attributes.get("latitud")
     longitude = attributes.get("longitud")
     altitude = attributes.get("altura")
-    coordinate = longitude +  "," + latitude + "," + altitude + "\n"
+    coordinate = f"{longitude}, {latitude}, {altitude}\n"
     file.write(coordinate)
 
-def traverseTreeAndAndDoKML(tree:ET.ElementTree, file):
+def traverse_tree_and_and_do_kml(tree:ET.ElementTree, file:typing.TextIO):
     root = tree.getroot()
+    plane = root.find("c:plano", NAMESPACE)
+    start_point = plane.find("c:punto", NAMESPACE)
     
-    plane = root.find("plano")
-    startPoint = plane.find("punto")
+    write_coordinate(start_point, file)
     
-    writeCoordinate(startPoint, file)
-    
-    phases = plane.find("tramos")
-    
-    for phase in phases.findall("tramo"):
-        writeCoordinate(phase.find("punto"), file)
+    phases = plane.find("c:tramos", NAMESPACE)
+    for phase in phases.findall("c:tramo", NAMESPACE):
+        write_coordinate(phase.find("c:punto", NAMESPACE), file)
 
 
-def prologueKML(file, filename):
+def prologue_kml(file:typing.TextIO, filename:str):
     """ Escribe en el archivo de salida el prólogo del archivo KML"""
 
     file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
@@ -50,7 +51,7 @@ def prologueKML(file, filename):
     file.write("<tessellate>1</tessellate>\n")
     file.write("<coordinates>\n")
 
-def epilogueKML(file):
+def epilogue_kml(file:typing.TextIO):
     """ Escribe en el archivo de salida el epílogo del archivo KML"""
 
     file.write("</coordinates>\n")
@@ -67,25 +68,20 @@ def epilogueKML(file):
     file.write("</kml>\n")
     
     
-def generateKML(tree:ET.ElementTree, filename:str):
-    try:
-        file = open(filename, "w")
-    except IOError:
-        print("Archivo kml (args2) inválido")
-        exit()
-        
-    prologueKML(file, filename)
-    traverseTreeAndAndDoKML(tree, file)
-    epilogueKML(file)
-    file.close()
-    
-    
+def generate_kml(tree:ET.ElementTree, filename:str):
+    with open(filename, "w") as file:
+        prologue_kml(file, filename)
+        traverse_tree_and_and_do_kml(tree, file)
+        epilogue_kml(file)
+
+
 def main():
-    fileXML = sys.argv[1]
-    tree = getTree(fileXML=fileXML)
-    fileKML = sys.argv[2]
-    generateKML(tree=tree, filename=fileKML)
-    
+    file_xml = sys.argv[1]
+    tree = get_tree(file_xml=file_xml)
+    file_kml = sys.argv[2]
+    generate_kml(tree=tree, filename=file_kml)
+    logging.getLogger(__name__).info(f"Archivo KML {file_kml} generado con éxito")
+
     
 if __name__ == "__main__":
     main()
