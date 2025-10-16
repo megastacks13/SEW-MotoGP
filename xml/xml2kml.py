@@ -1,3 +1,15 @@
+"""
+!/usr/bin/env python3
+-*- coding: utf-8 -*-
+
+@author: Jaime Alonso Fernández UO294024
+@date: 2025-10-16
+@description: Convierte un archivo XML que siga las pautas de circuito.xsd de en un formato KML.
+
+Para la ejecución de este código se emplea un comando similar al visto en xml2svg:
+python xml2kml.py circuitoEsquema.xml salida.kml
+"""
+
 import typing
 import xml.etree.ElementTree as ET
 import sys
@@ -19,6 +31,8 @@ def get_tree(file_xml):
     return tree
 
 def write_coordinate(point:ET.Element, file:typing.TextIO):
+    """ Escribe en el archivo de salida las coordenadas del punto que recibe """
+
     attributes = point.attrib
     latitude = attributes.get("latitud")
     longitude = attributes.get("longitud")
@@ -27,6 +41,8 @@ def write_coordinate(point:ET.Element, file:typing.TextIO):
     file.write(coordinate)
 
 def traverse_tree_and_and_do_kml(tree:ET.ElementTree, file:typing.TextIO):
+    """ Recorre el árbol y manda escribir los puntos en el archivo de salida """
+
     root = tree.getroot()
     plane = root.find("c:plano", NAMESPACE)
     start_point = plane.find("c:punto", NAMESPACE)
@@ -71,6 +87,8 @@ def epilogue_kml(file:typing.TextIO):
     
     
 def generate_kml(tree:ET.ElementTree, filename:str):
+    """ Suponiendo que el archivo exista, condensa las 3 partes de la escritura """
+
     with open(filename, "w") as file:
         prologue_kml(file, filename)
         traverse_tree_and_and_do_kml(tree, file)
