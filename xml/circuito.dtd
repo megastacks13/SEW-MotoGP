@@ -35,13 +35,13 @@
 
 <!ELEMENT galerias (galeriafotos, galeriavideos)>
 <!-- Galería fotos -->
-<!ELEMENT galeriafotos (foto+)>
+<!ELEMENT galeriafotos (foto*)>
 <!ELEMENT foto EMPTY>
 <!ATTLIST foto src CDATA #REQUIRED>
 <!ATTLIST foto alt CDATA "">
 
 <!-- Galería video -->
-<!ELEMENT galeriavideos (video+)>
+<!ELEMENT galeriavideos (video*)>
 <!ELEMENT video EMPTY>
 <!ATTLIST video src CDATA #REQUIRED>
 <!ATTLIST video alt CDATA "">

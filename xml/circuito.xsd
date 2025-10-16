@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://uniovi.es/circuito" elementFormDefault="qualified" targetNamespace="http://uniovi.es/circuito" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="circuito">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="nombre" />
+				<xs:element ref="geografía" />
+				<xs:element ref="dimensiones" />
+				<xs:element ref="carrera" />
+				<xs:element ref="resultados" />
+				<xs:element ref="rankingMundial" />
+				<xs:element ref="galerias" />
+				<xs:element ref="plano" />
+				<xs:element ref="bibliografía" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="nombre" type="xs:string" />
+	<xs:element name="geografía">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pais" />
+				<xs:element ref="localidad" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pais" type="xs:string" />
+	<xs:element name="localidad" type="xs:string" />
+	<xs:element name="dimensiones">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="longitud" />
+				<xs:element ref="anchura" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="anchura">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="unidades" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="longitud">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+                    <!-- Cambio de las unidades para tener un doble -->
+					<xs:attribute name="unidades" type="xs:string" use="required" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="carrera">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="fecha" />
+				<xs:element ref="hora" />
+				<xs:element ref="vueltas" />
+				<xs:element ref="patrocinador" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <!-- Cambio de las unidades para tener un date -->
+	<xs:element name="fecha" type="xs:date" />
+    <!-- Cambio de las unidades para tener un time -->
+	<xs:element name="hora" type="xs:time" />
+    <!-- Cambio de las unidades para tener un entero -->
+	<xs:element name="vueltas" type="xs:int" />
+	<xs:element name="patrocinador" type="xs:string" />
+	<xs:element name="resultados">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="piloto" />
+				<xs:element ref="tiempo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="piloto">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+                    <!-- Cambio de las unidades para tener un entero -->
+					<xs:attribute default="0" name="puntos" type="xs:int" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+    <!-- Elimino el requisito de unidad al completo al usar duration -->
+	<xs:element name="tiempo" type="xs:duration"/>
+	<xs:element name="rankingMundial">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="piloto" />
+				<xs:element ref="piloto" />
+				<xs:element ref="piloto" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="galerias">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="galeriafotos" />
+				<xs:element ref="galeriavideos" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="galeriafotos">
+		<xs:complexType>
+			<xs:sequence>
+                <!-- Añadimos el límite de ocurrencias -->
+				<xs:element minOccurs="1" maxOccurs="5" ref="foto" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="foto">
+		<xs:complexType>
+			<xs:attribute name="src" type="xs:string" use="required" />
+			<xs:attribute default="" name="alt" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="galeriavideos">
+		<xs:complexType>
+			<xs:sequence>
+                <!-- Añadimos el límite de ocurrencias -->
+				<xs:element minOccurs="1" maxOccurs="3" ref="video" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="video">
+		<xs:complexType>
+			<xs:attribute name="src" type="xs:string" use="required" />
+			<xs:attribute default="" name="alt" type="xs:string" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="plano">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="punto" />
+				<xs:element ref="tramos" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="punto">
+		<xs:complexType>
+            <!-- Cambio de las unidades para tener un doble -->
+			<xs:attribute name="longitud" type="xs:double" use="required" />
+            <!-- Cambio de las unidades para tener un doble -->
+			<xs:attribute name="latitud" type="xs:double" use="required" />
+            <!-- Cambio de las unidades para tener un doble -->
+			<xs:attribute name="altura" type="xs:double" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tramos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="tramo" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tramo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="punto" />
+			</xs:sequence>
+            <!-- Cambio de las unidades para tener un entero -->
+			<xs:attribute name="numeroSector" type="xs:int" use="required" />
+            <!-- Cambio de las unidades para tener un doble -->
+			<xs:attribute name="distancia" type="xs:double" use="required" />
+			<xs:attribute name="unidad" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bibliografía">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="referencia" />
+				<xs:element ref="referencia" />
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="referencia" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="referencia" type="xs:string" />
+</xs:schema>

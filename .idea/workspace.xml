@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/xml/circuito.kml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xml/circuitoEsquema.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xml/xml2kml.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/estilo/estilo.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/estilo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/estilo/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/piloto.html" beforeDir="false" afterPath="$PROJECT_DIR$/piloto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/P4-XML-sesión1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml/circuito.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/xml/circuito.dtd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,25 +31,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "prac4",
-    "last_opened_file_path": "D:/Programacion/Universidad 4to/SEW/SEW-MotoGP",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;prac5&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/Programming/Universidad 4to/SEW/MotoGP-Desktop/xml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Lenovo\Documents\Programming\Universidad 4to\SEW\MotoGP-Desktop\xml" />
       <recent name="D:\Programacion\Universidad 4to\SEW\SEW-MotoGP" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -81,6 +84,7 @@
       <workItem from="1759403806927" duration="94000" />
       <workItem from="1759403945770" duration="5820000" />
       <workItem from="1759736821507" duration="82000" />
+      <workItem from="1760612932804" duration="6610000" />
     </task>
     <servers />
   </component>
