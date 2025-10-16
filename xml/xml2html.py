@@ -88,7 +88,7 @@ def generate_html_mid_content(tree:ET.ElementTree, file:typing.TextIO):
     unidad_anchura = anchura.attrib.get('unidades')
 
     section_start(file)
-    header(file, 2, name)
+    header(file, 2, f"Conoce el circuito {name}")
     parraf(file, f"Situado en {pais.text} a las afuera de {localidad.text}, este circuito cuenta con una longitud "
                  f"aproximada de {distancia.text} {unidad} y una anchura media de unos {anchura.text} {unidad_anchura}.")
 
