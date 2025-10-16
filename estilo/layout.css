@@ -45,6 +45,7 @@ main > section, main>aside{
 main > aside:last-of-type{
     text-align: center;
     padding:4rem;
+    margin-top:1.5rem;
 }
 
 /* Especificidad (0, 1, 3) */

@@ -4,19 +4,19 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="nombre" />
-				<xs:element ref="geografía" />
+				<xs:element ref="geografia" />
 				<xs:element ref="dimensiones" />
 				<xs:element ref="carrera" />
 				<xs:element ref="resultados" />
 				<xs:element ref="rankingMundial" />
 				<xs:element ref="galerias" />
 				<xs:element ref="plano" />
-				<xs:element ref="bibliografía" />
+				<xs:element ref="bibliografia" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nombre" type="xs:string" />
-	<xs:element name="geografía">
+	<xs:element name="geografia">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="pais" />
@@ -172,14 +172,21 @@
 			<xs:attribute name="unidad" type="xs:string" use="required" />
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="bibliografía">
+	<xs:element name="bibliografia">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="referencia" />
-				<xs:element ref="referencia" />
+                <!-- Cambio para dejarlo bonico -->
 				<xs:element minOccurs="1" maxOccurs="unbounded" ref="referencia" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="referencia" type="xs:string" />
+	<xs:element name="referencia">
+    <xs:complexType>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="src" type="xs:string" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+</xs:element>
 </xs:schema>

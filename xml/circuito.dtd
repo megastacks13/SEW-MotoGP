@@ -1,11 +1,11 @@
 <?xml encoding="UTF-8"?>
 
 <!-- Padre -->
-<!ELEMENT circuito (nombre, geografía, dimensiones, carrera, resultados, rankingMundial, galerias, plano, bibliografía)>
+<!ELEMENT circuito (nombre, geografia, dimensiones, carrera, resultados, rankingMundial, galerias, plano, bibliografia)>
 
 <!-- Especificaciones generales del circuito -->
 <!ELEMENT nombre (#PCDATA)>
-<!ELEMENT geografía (pais, localidad)>
+<!ELEMENT geografia (pais, localidad)>
 <!ELEMENT pais (#PCDATA)>
 <!ELEMENT localidad (#PCDATA)>
 
@@ -38,13 +38,13 @@
 <!ELEMENT galeriafotos (foto*)>
 <!ELEMENT foto EMPTY>
 <!ATTLIST foto src CDATA #REQUIRED>
-<!ATTLIST foto alt CDATA "">
+<!ATTLIST foto alt CDATA #IMPLIED>
 
 <!-- Galería video -->
 <!ELEMENT galeriavideos (video*)>
 <!ELEMENT video EMPTY>
 <!ATTLIST video src CDATA #REQUIRED>
-<!ATTLIST video alt CDATA "">
+<!ATTLIST video alt CDATA #IMPLIED>
 
 <!-- Plano -->
 <!ELEMENT plano (punto, tramos)>
@@ -64,5 +64,6 @@
 
 
 <!-- Referencias -->
-<!ELEMENT bibliografía (referencia,referencia,referencia+)>
+<!ELEMENT bibliografia (referencia,referencia,referencia+)>
 <!ELEMENT referencia (#PCDATA)>
+<!ATTLIST referencia src CDATA #REQUIRED>

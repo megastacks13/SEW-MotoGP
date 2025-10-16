@@ -82,6 +82,9 @@ table, tr, th{
 
 /* Especificidad (0, 0, 1) */
 td{
+    border-color:#000000;
+    border-style: solid;
+    border-collapse: collapse;
     /* Advertencia no foreground color */
     background-color: #6c6c6d;
     font-weight: bold;

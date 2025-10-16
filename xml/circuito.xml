@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE circuito SYSTEM "circuito.dtd">
 <circuito>
     <nombre>Mobility Resort Motegi</nombre>
 
-    <geografía>
+    <geografia>
         <pais>Japón</pais>
         <localidad>Motegi-machi</localidad>
-    </geografía>
+    </geografia>
 
     <dimensiones>
         <longitud unidades="metros">4800</longitud>
@@ -130,10 +130,10 @@
         </tramos>
     </plano>
     
-    <bibliografía>
-        <referencia>https://www.mr-motegi.jp/eng/motogp</referencia>
-        <referencia>https://www.motogp.com/</referencia>
-        <referencia>https://es.wikipedia.org/wiki/Mobility_Resort_Moteg</referencia>
-    </bibliografía>
+    <bibliografia>
+        <referencia src="https://www.mr-motegi.jp/eng/motogp">Mr-Motegi</referencia>
+        <referencia src="https://www.motogp.com/">MotoGP Oficial</referencia>
+        <referencia src="https://es.wikipedia.org/wiki/Mobility_Resort_Motegi">Wikipedia-Motegi</referencia>
+    </bibliografia>
 
 </circuito>
