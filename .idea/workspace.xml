@@ -7,6 +7,7 @@
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xml/circuito.kml" beforeDir="false" afterPath="$PROJECT_DIR$/xml/circuito.kml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml/circuitoEsquema.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml/circuitoEsquema.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xml/xml2kml.py" beforeDir="false" afterPath="$PROJECT_DIR$/xml/xml2kml.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

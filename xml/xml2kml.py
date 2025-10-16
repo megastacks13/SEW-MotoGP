@@ -1,9 +1,11 @@
-import logging
 import typing
 import xml.etree.ElementTree as ET
 import sys
+import logging
 
 NAMESPACE = {"c": "http://uniovi.es/circuito"}
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+logger = logging.getLogger(__name__)
 
 def get_tree(file_xml):
     try:
@@ -21,7 +23,7 @@ def write_coordinate(point:ET.Element, file:typing.TextIO):
     latitude = attributes.get("latitud")
     longitude = attributes.get("longitud")
     altitude = attributes.get("altura")
-    coordinate = f"{longitude}, {latitude}, {altitude}\n"
+    coordinate = f"{longitude},{latitude},{altitude}\n"
     file.write(coordinate)
 
 def traverse_tree_and_and_do_kml(tree:ET.ElementTree, file:typing.TextIO):
@@ -80,7 +82,7 @@ def main():
     tree = get_tree(file_xml=file_xml)
     file_kml = sys.argv[2]
     generate_kml(tree=tree, filename=file_kml)
-    logging.getLogger(__name__).info(f"Archivo KML {file_kml} generado con éxito")
+    logger.info(f"Archivo KML {file_kml} generado con éxito")
 
     
 if __name__ == "__main__":

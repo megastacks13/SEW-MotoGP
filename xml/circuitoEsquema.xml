@@ -111,22 +111,28 @@
             <tramo distancia="395.29" numeroSector="19" unidad="metros">
                 <punto longitud="140.2381555" latitud="36.5336683" altura="177.75"/>
             </tramo>
-            <tramo distancia="51.23" numeroSector="20" unidad="metros">
-                <punto longitud="140.2385699" latitud="36.5333500" altura="178.57"/>
+            <tramo distancia="26.68" numeroSector="20" unidad="metros">
+                <punto longitud="140.2384208" latitud="36.5335589" altura="178.01"/>
             </tramo>
-            <tramo distancia="803.94" numeroSector="21" unidad="metros">
-                <punto longitud="140.2319120" latitud="36.5284903" altura="154.07"/>
+            <tramo distancia="32.01" numeroSector="21" unidad="metros">
+                <punto longitud="140.2385699" latitud="36.5333500" altura="152.74"/>
             </tramo>
-            <tramo distancia="213.67" numeroSector="22" unidad="metros">
+            <tramo distancia="779.59" numeroSector="22" unidad="metros">
+                <punto longitud="140.2321691" latitud="36.5285886" altura="155.76"/>
+            </tramo>
+            <tramo distancia="152.74" numeroSector="23" unidad="metros">
+                <punto longitud="140.2317592" latitud="36.5285384" altura="152.74"/>
+            </tramo>
+            <tramo distancia="213.67" numeroSector="24" unidad="metros">
                 <punto longitud="140.2306018" latitud="36.5300994" altura="147.45"/>
             </tramo>
-            <tramo distancia="117.84" numeroSector="23" unidad="metros">
+            <tramo distancia="117.84" numeroSector="25" unidad="metros">
                 <punto longitud="140.2293284" latitud="36.5303672" altura="150.29"/>
             </tramo>
-            <tramo distancia="52.45" numeroSector="24" unidad="metros">
+            <tramo distancia="52.45" numeroSector="26" unidad="metros">
                 <punto longitud="140.2288407" latitud="36.5301055" altura="151.92"/>
             </tramo>
-            <tramo distancia="392.2" numeroSector="25" unidad="metros">
+            <tramo distancia="392.2" numeroSector="27" unidad="metros">
                 <punto longitud="140.2266254" latitud="36.5331544" altura="153.76"/>
             </tramo>
         </tramos>
