@@ -1,4 +1,4 @@
-<?xml encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- Padre -->
 <!ELEMENT circuito (nombre, geografia, dimensiones, carrera, resultados, rankingMundial, galerias, plano, bibliografia)>
@@ -64,6 +64,6 @@
 
 
 <!-- Referencias -->
-<!ELEMENT bibliografia (referencia,referencia,referencia+)>
+<!ELEMENT bibliografia (referencia+)>
 <!ELEMENT referencia (#PCDATA)>
 <!ATTLIST referencia src CDATA #REQUIRED>

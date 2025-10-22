@@ -42,9 +42,9 @@
             <foto src="multimedia/img/motegi_entrance.jpg" alt="Foto de entrada en meta de un piloto haciendo un caballito."/>
         </galeriafotos>
         <galeriavideos>
-            <video src="multimedia/video/Motegi Race Highlights.mp4"/>
-            <video src="multimedia/video/First Turn Motegi 25.mp4"/>
-            <video src="multimedia/video/Motegi Sprint Start.mp4"/>
+            <video src="multimedia/video/MotegiRaceHighlights.mp4"/>
+            <video src="multimedia/video/FirstTurnMotegi25.mp4"/>
+            <video src="multimedia/video/MotegiSprintStart.mp4"/>
         </galeriavideos>
     </galerias>
     

@@ -14,6 +14,8 @@ import typing
 import xml.etree.ElementTree as ET
 import sys
 import logging
+import re
+import os
 
 NAMESPACE = {"c": "http://uniovi.es/circuito"}
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -24,7 +26,17 @@ section_start = lambda file: file.write('<section>\n')
 section_end = lambda file: file.write('</section>\n')
 header = lambda file, number, title: file.write('<h%d>%s</h%d>\n' % (number, title, number))
 parraf = lambda file, content: file.write('<p>%s</p>\n' % content)
-img = lambda file, source, alt: file.write('<img src="%s" alt="%s">\n' % (source, alt))
+img = lambda file, imag: file.write('<img src="%s" alt="%s">\n' % (imag.attrib.get('src'), imag.attrib.get('alt')))
+vid = lambda file, video: file.write(
+    '<video controls preload="auto">'
+    '<source src="%s" type="video/%s">'
+    '</video>\n' %
+    (
+        video.attrib.get('src'),
+        os.path.splitext(video.attrib.get('src'))[1].lstrip('.')
+    )
+)
+
 aside_start = lambda file: file.write('<aside>')
 aside_end = lambda file: file.write('</aside>\n')
 
@@ -77,6 +89,7 @@ def generate_html_mid_content(tree:ET.ElementTree, file:typing.TextIO):
     galerias = root.find('c:galerias', NAMESPACE)
     images = galerias.find('c:galeriafotos', NAMESPACE).findall('c:foto', NAMESPACE)
     videos = galerias.find('c:galeriavideos', NAMESPACE).findall('c:video', NAMESPACE)
+    carrera = root.find('c:carrera', NAMESPACE)
 
     pais = root.find('c:geografia', NAMESPACE).find('c:pais', NAMESPACE)
     localidad = root.find('c:geografia', NAMESPACE).find('c:localidad', NAMESPACE)
@@ -87,33 +100,41 @@ def generate_html_mid_content(tree:ET.ElementTree, file:typing.TextIO):
     anchura = root.find('c:dimensiones', NAMESPACE).find('c:anchura', NAMESPACE)
     unidad_anchura = anchura.attrib.get('unidades')
 
+    # Información general
     section_start(file)
-    header(file, 2, f"Conoce el circuito {name}")
+    header(file, 2, f"{name}")
     parraf(file, f"Situado en {pais.text} a las afuera de {localidad.text}, este circuito cuenta con una longitud "
                  f"aproximada de {distancia.text} {unidad} y una anchura media de unos {anchura.text} {unidad_anchura}.")
 
-    src = images[0].attrib.get('src')
-    alt = images[0].attrib.get('alt')
-    img(file, src, alt)
+    img(file, images[0])
     section_end(file)
 
+    # Resultados carrera
     section_start(file)
     header(file, 3, "Resultados")
     ganador = root.find('c:resultados', NAMESPACE).find('c:piloto', NAMESPACE).text
     tiempo = root.find('c:resultados', NAMESPACE).find('c:tiempo', NAMESPACE).text
-    parraf(file, f"Tras esta competicion, el piloto <strong>{ganador}</strong> se garantizó el escalón más alto "
-                 f"del podio con un tiempo de {tiempo}.")
+    tiempo = beautifyTime(tiempo)
+    fecha_carrera = carrera.find('c:fecha', NAMESPACE).text
+    patrocinador = carrera.find('c:patrocinador', NAMESPACE).text
+    vueltas = carrera.find('c:vueltas', NAMESPACE).text
+    hora = carrera.find('c:hora', NAMESPACE).text
+
+    parraf(file, f"Durante la última competencia realizada en este circuito el pasado {fecha_carrera} a las {hora} hora española"
+                 f" con el patrocinio de {patrocinador}, el piloto <strong>{ganador}</strong> se aseguró el escalón más alto "
+                 f"del podio, tras las {vueltas} vueltas reglamentarias, con un tiempo de {tiempo}.")
     parraf(file, "Dicho esto, el top 3 del mundial al finalizar esta competencia, tomaba la siguiente forma.")
     ranking = root.find('c:rankingMundial', NAMESPACE)
-    pilotos = ranking.findall('c:piloto', NAMESPACE)
+    pilotos_del_ranking = ranking.findall('c:piloto', NAMESPACE)
 
+    # Resultados Mundial
     file.write('<table>\n')
     file.write('<tr>\n')
     file.write('<th>Posición</th>\n')
     file.write('<th>Nombre</th>\n')
     file.write('<th>Puntos</th>\n')
     file.write('</tr>\n')
-    for i, piloto in enumerate(pilotos):
+    for i, piloto in enumerate(pilotos_del_ranking):
         file.write('<tr>\n')
         file.write('<td>%d</td>\n' % (i+1))
         file.write('<td>%s</td>\n' % piloto.text)
@@ -123,6 +144,21 @@ def generate_html_mid_content(tree:ET.ElementTree, file:typing.TextIO):
     file.write('</table>\n')
     section_end(file)
 
+    # Galeria
+    section_start(file)
+    header(file, 3, "Galería")
+
+    vid(file, videos[0])
+
+    for imag in images[1:]:
+        img(file, imag)
+
+    for vide in videos[1:]:
+        vid(file, vide)
+
+    section_end(file)
+
+    #Bibliografia
     bibliography = root.find('c:bibliografia', NAMESPACE)
     references = bibliography.findall('c:referencia', NAMESPACE)
 
@@ -133,8 +169,19 @@ def generate_html_mid_content(tree:ET.ElementTree, file:typing.TextIO):
     aside_end(file)
 
 
+def beautifyTime(time : str):
+    match = re.match(r"PT(\d+)M(\d+)\.(\d+)S", time)
+    if not match:
+        raise ValueError("Formato inválido: debe ser algo como PT42M09.312S")
+
+    minutos, segundos, milisegundos = match.groups()
+
+    # Formateamos como 42:09:312
+    return f"{int(minutos):02d}:{int(segundos):02d}:{milisegundos}"
+
+
 def generate_html(tree: ET.ElementTree, filename: str):
-    with open(filename, "w") as file:
+    with open(filename, "w",  encoding="utf-8") as file:
         generate_html_header(file)
         generate_html_mid_content(tree, file)
         generate_html_close_tags(file)
