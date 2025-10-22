@@ -37,7 +37,8 @@
 	<xs:element name="anchura">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:string">
+                <!-- Cambio de las unidades para tener un doble -->
+				<xs:extension base="xs:double">
 					<xs:attribute name="unidades" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
@@ -46,8 +47,8 @@
 	<xs:element name="longitud">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:string">
-                    <!-- Cambio de las unidades para tener un doble -->
+                <!-- Cambio de las unidades para tener un doble -->
+				<xs:extension base="xs:double">
 					<xs:attribute name="unidades" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
@@ -175,7 +176,6 @@
 	<xs:element name="bibliografia">
 		<xs:complexType>
 			<xs:sequence>
-                <!-- Cambio para dejarlo bonico -->
 				<xs:element minOccurs="1" maxOccurs="unbounded" ref="referencia" />
 			</xs:sequence>
 		</xs:complexType>
