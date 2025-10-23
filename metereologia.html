@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
     <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
     <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon"/>
+    <script src="js/ciudad.js"></script>
 </head>
 
 <body>
@@ -30,8 +31,18 @@
     <!-- Desmigue de ubicación -->
     <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Metereología</strong></p>
 <main>
-<p>En desarrollo... </p>
-<h2>Predicción Semanal</h2>
+    <section>
+        <script>let ciudad = new Ciudad("Motegi", "Japón", "Motegiense")</script>
+        <script>ciudad.fill(11631, '36°32′01″N 140°13′39″E')</script>
+        <h2><script>document.write(ciudad.getNombreCiudad())</script></h2>
+        <p>Esta ciudad, con coordenadas <script>ciudad.writeCoordenadas()</script>,
+            pertenece a <script>document.write(ciudad.getPaisCiudad())</script>. </p>
+    </section>
+    <section>
+        <h3>Información Secundaria:</h3>
+        <p>Otros datos relevantes sobre <script>document.write(ciudad.getNombreCiudad())</script>:</p>
+        <script>document.write(ciudad.getInformacionSecundaria())</script>
+    </section>
 </main>
 </body>
 </html>
