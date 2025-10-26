@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/js/memoria.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/estilo/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/cards.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/estilo/layout-cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/layout-cards.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memoria.html" beforeDir="false" afterPath="$PROJECT_DIR$/memoria.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">

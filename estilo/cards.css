@@ -29,6 +29,7 @@ article img {
     height: 100%;
     position: absolute;
     border-radius: 0.5em;
+    /* Advertencia de no color de fondo */
     background: #1C7CCC;
     backface-visibility: hidden;
 }
@@ -51,7 +52,9 @@ article img {
 
 @media (min-width: 320px) and (max-width: 799px) {
     main article{
+        /* Advertencia de redefinción */
         width: 25vw;
+        /* Advertencia de redefinción */
         height: 10em;
     }
 }
