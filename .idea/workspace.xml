@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/js/memoria.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/estilo/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/cards.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/ciudad.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/ciudad.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/memoria.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/memoria.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memoria.html" beforeDir="false" afterPath="$PROJECT_DIR$/memoria.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="prac4" />
+        <entry key="$PROJECT_DIR$" value="prac7" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,7 +72,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-WS-252.26199.162" />
       </set>
     </attachedChunks>
   </component>
@@ -101,6 +102,7 @@
       <workItem from="1760958846325" duration="1196000" />
       <workItem from="1761140129827" duration="2591000" />
       <workItem from="1761314919638" duration="3439000" />
+      <workItem from="1761746151689" duration="1283000" />
     </task>
     <servers />
   </component>

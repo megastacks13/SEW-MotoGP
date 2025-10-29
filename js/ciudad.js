@@ -1,11 +1,6 @@
 "use strict";
 
 class Ciudad {
-    nombre;
-    pais;
-    gentilicio ;
-    poblacion;
-    coordenadas_centro;
 
     constructor(nombre, pais, gentilicio) {
         this.nombre = nombre;
@@ -34,7 +29,9 @@ class Ciudad {
     }
 
     writeCoordenadas(){
-        document.write(this.coordenadas_centro.toString());
+        const p = document.createElement("p");
+        p.textContent = this.coordenadas_centro.toString();
+        document.body.appendChild(p);
     }
 
 }
