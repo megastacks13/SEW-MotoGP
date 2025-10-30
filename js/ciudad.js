@@ -29,9 +29,10 @@ class Ciudad {
     }
 
     writeCoordenadas(){
+        const seccion2 = document.querySelectorAll('main > section')[0];
         const p = document.createElement("p");
         p.textContent = this.coordenadas_centro.toString();
-        document.body.appendChild(p);
+        seccion2.appendChild(p);
     }
 
 }
