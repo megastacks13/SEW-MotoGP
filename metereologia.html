@@ -7,7 +7,7 @@
     <meta name="description" content="Página de predicciones meteorológicas"/>
     <meta name="keywords" content="MotoGP, Moto, Tiempo, Lluvia, Sol, Mojado"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MotoGP-Metereologia</title>
+    <title>MotoGP - Meteorología</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
     <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
     <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon"/>
@@ -15,36 +15,53 @@
 </head>
 
 <body>
-<!-- Datos con el contenidos que aparece en el navegador -->
 <header>
     <h1><a href="index.html">Moto GP Desktop</a></h1>
     <nav>
         <a href="index.html">Inicio</a>
         <a href="piloto.html">Piloto</a>
         <a href="circuito.html">Circuito</a>
-        <a href="metereologia.html" class="active">Metereología</a>
+        <a href="metereologia.html">Meteorología</a>
         <a href="clasificaciones.html">Clasificaciones</a>
         <a href="juegos.html">Juegos</a>
         <a href="ayuda.html">Ayuda</a>
     </nav>
 </header>
-    <!-- Desmigue de ubicación -->
-    <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Metereología</strong></p>
+
+<p>Estás en: <a href="index.html">Inicio</a> >> <strong>Meteorología</strong></p>
+
 <main>
-    <!--TODO: Los <script> están bien, y document write solo se puede usar en la lista.-->
-    <!-- ASK: sobran parrafos de informacion? -->
     <section>
-        <script>let ciudad = new Ciudad("Motegi", "Japón", "Motegiense")</script>
-        <script>ciudad.fill(11631, '36°32′01″N 140°13′39″E')</script>
-        <h2><script>document.write(ciudad.getNombreCiudad())</script></h2>
-        <p>Esta ciudad, con coordenadas <script>ciudad.writeCoordenadas()</script>,
-            pertenece a <script>document.write(ciudad.getPaisCiudad())</script>. </p>
+        <h2></h2>
+        <p></p>
     </section>
+
     <section>
         <h3>Información Secundaria:</h3>
-        <p>Otros datos relevantes sobre <script>document.write(ciudad.getNombreCiudad())</script>:</p>
-        <script>document.write(ciudad.getInformacionSecundaria())</script>
+        <p></p>
     </section>
 </main>
+
+<script>
+    // Crear el objeto ciudad
+    const ciudad = new Ciudad("Motegi", "Japón", "Motegiense");
+    ciudad.fill(11631, '36°32′01″N 140°13′39″E');
+
+    // Seleccionamos los elementos sin usar id ni class
+    const secciones = document.querySelectorAll('main > section');
+    const primeraSeccion = secciones[0];
+    const segundaSeccion = secciones[1];
+
+    const h2 = primeraSeccion.querySelector('h2');
+    const p1 = primeraSeccion.querySelector('p');
+    const p2 = segundaSeccion.querySelector('p');
+
+    // Rellenamos el contenido
+    h2.textContent = ciudad.getNombreCiudad();
+    p1.textContent = `Esta ciudad pertenece a ${ciudad.getPaisCiudad()} y su centro está situado en las siguientes coordenadas:`;
+    ciudad.writeCoordenadas();
+    p2.innerHTML = ciudad.getInformacionSecundaria();
+</script>
+
 </body>
 </html>
