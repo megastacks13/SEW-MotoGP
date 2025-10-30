@@ -6,11 +6,13 @@
     <meta name="author" content="Jaime Alonso Fernández"/>
     <meta name="description" content="Página de Juegos"/>
     <meta name="keywords" content="MotoGP, Moto, Motorbike, Juegos, Diversión"/>
+    <meta name="keywords" content="Memoria, Cartas"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MotoGP-Juegos</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
     <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
     <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon"/>
+    <script src="js/cronometro.js"></script>
 </head>
 
 <body>
@@ -27,16 +29,16 @@
         <a href="ayuda.html">Ayuda</a>
     </nav>
 </header>
-    <!-- Desmigue de ubicación -->
-    <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Juegos</strong></p>
+<!-- Desmigue de ubicación -->
+<p>Estás en: <a href="index.html">Inicio</a> >> <a href="juegos.html">Juegos</a> >> <strong>Cronómetro</strong></p>
+<script>let cronometro = new Cronometro()</script>
 <main>
-    <section>
-        <h2>Juega aquí</h2>
-        <ul>
-            <li><a href="memoria.html">Juego de memoria con cartas</a></li>
-            <li><a href="cronometro.html">Cronómetro en línea</a></li>
-        </ul>
-    </section>
+    <h2>Cronómetro</h2>
+    <p>00:00.00</p>
+    <button onclick="cronometro.arrancar()">Iniciar</button>
+    <button onclick="cronometro.parar()">Parar</button>
+    <button onclick="cronometro.reiniciar()">Reiniciar</button>
 </main>
+
 </body>
 </html>

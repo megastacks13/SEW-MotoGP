@@ -1,7 +1,7 @@
 /* Jaime Alonso Fernández - UO294024 */
 /* Estilos específicos para el juego de memoria de MotoGP desktop */
 
-
+/*ASK: Preguntar al profe esta disposicion*/
 main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -22,18 +22,18 @@ main > h2 {
 @media (min-width: 320px) and (max-width: 799px) {
     main {
         /* Advertencia de redefinición */
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         /* Advertencia de redefinición */
-        grid-template-rows: 10% repeat(5, 1fr);
+        grid-template-rows: 10% repeat(7, 1fr);
         /* Advertencia de redefinición */
-        margin: 0 1rem;
+        margin: 0 10rem;
         /* Advertencia de redefinición */
-        column-gap: 0.5rem;
+        column-gap: 0.1rem;
     }
 
     main > h2{
         height: 4rem;
         /* Advertencia de redefinición */
-        margin: 2rem 1rem;
+        margin: 2rem 0rem;
     }
 }
