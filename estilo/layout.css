@@ -30,6 +30,11 @@ main > *{
     margin: 0 15rem;
 }
 
+/* Especificidad (0, 0, 1) */
+h2{
+    margin-bottom:2rem;
+}
+
 /* Especificidad (0, 1, 3) */
 body > p:first-of-type:has(strong) {
     /* Despegamos las migas de pan del límite de la pantalla */

@@ -21,8 +21,7 @@ class Memoria {
 
         // Barajamos las cartas
         for (let i = cartas.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            // Método de Fisher-Yates para barajar eficientemente
+            const j = Math.floor(Math.random() * (cartas.length - 1));
             [cartas[i], cartas[j]] = [cartas[j], cartas[i]];
         }
 
