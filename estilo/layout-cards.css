@@ -41,7 +41,7 @@ main > p{
         /* Advertencia de redefinición */
         grid-template-rows: 10% 5% repeat(7, 1fr);
         /* Advertencia de redefinición */
-        margin: 0 10rem;
+        margin: 0 7rem;
         /* Advertencia de redefinición */
         column-gap: 0.1rem;
     }

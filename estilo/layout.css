@@ -25,9 +25,14 @@ nav a {
     margin: auto;
 }
 
-/* Especificidad (0, 0, 2) */
-main > h2{
-    margin:0 15rem;
+/* Especificidad (0, 0, 1) */
+main > *{
+    margin: 0 15rem;
+}
+
+/* Especificidad (0, 0, 1) */
+h2{
+    margin-bottom:2rem;
 }
 
 /* Especificidad (0, 1, 3) */
@@ -36,16 +41,11 @@ body > p:first-of-type:has(strong) {
     padding: 0 0 0 2em;
 }
 
-/* Especificidad (0, 0, 2) */
-main > section, main>aside{
-    padding:0 15rem;
-}
-
 /* Especificidad (0, 1, 2) */
 main > aside:last-of-type{
     text-align: center;
     padding:4rem;
-    margin-top:1.5rem;
+    margin: 1.5rem 0 0 0;
 }
 
 /* Especificidad (0, 1, 3) */
@@ -77,6 +77,11 @@ th{
         flex-direction: column;
     }
 
+    /* Especificidad (0, 0, 1) */
+    main > *{
+        margin: 0 2rem;
+    }
+
     /* Especificidad (0, 1, 2) */
     p:first-of-type:has(strong) {
         /* Eliminamos las migas en caso de que la pantalla sea muy pequeña */
@@ -87,11 +92,6 @@ th{
     video,audio {
         width: 100%;
         height: auto;
-    }
-
-    /* Especificidad (0, 0, 2) */
-    main > section, main > aside{
-        padding:0 3rem;
     }
 
     /* Especificidad (0, 0, 2) */
