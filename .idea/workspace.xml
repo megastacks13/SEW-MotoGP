@@ -8,16 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cronometro.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/cronometro.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayuda.html" beforeDir="false" afterPath="$PROJECT_DIR$/ayuda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/estilo/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/cards.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/estilo/layout-cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/layout-cards.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/memoria.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/memoria.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegos.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memoria.html" beforeDir="false" afterPath="$PROJECT_DIR$/memoria.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metereologia.html" beforeDir="false" afterPath="$PROJECT_DIR$/metereologia.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,23 +45,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "prac7",
-    "last_opened_file_path": "C:/Users/Lenovo/Documents/Programming/Universidad 4to/SEW/MotoGP-Desktop",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;prac7&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/Programming/Universidad 4to/SEW/MotoGP-Desktop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lenovo\Documents\Programming\Universidad 4to\SEW\MotoGP-Desktop" />
@@ -80,7 +75,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-WS-252.26199.162" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
       </set>
     </attachedChunks>
   </component>
@@ -111,6 +106,7 @@
       <workItem from="1761140129827" duration="2591000" />
       <workItem from="1761314919638" duration="3439000" />
       <workItem from="1761746151689" duration="1283000" />
+      <workItem from="1762260987648" duration="3778000" />
     </task>
     <servers />
   </component>
