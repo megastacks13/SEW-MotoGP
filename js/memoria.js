@@ -6,14 +6,15 @@ class Memoria {
         this.primera_carta = null;
         this.segunda_carta = null;
 
-        this.barajarCartas()
+        this.#crearCartasDeArticles();
+        this.#barajarCartas()
         this.tableroBloqueado = false;
 
         this.cronometro = new Cronometro();
         this.cronometro.arrancar()
     }
 
-    // Voltea la carta añadiendo la propiedad data-estado="revelada"
+    // Voltea la carta añadiendo la propiedad data-estado="volteada"
     voltearCarta(card) {
         // Comprobamos las cartas
         if (card.dataset.estado === "revelada" || card.dataset.estado === "volteada" || this.tableroBloqueado) return;
@@ -23,14 +24,14 @@ class Memoria {
         // Almacenamos las cartas
         if (this.primera_carta) {
             this.segunda_carta = card;
-            this.comprobarPareja();
+            this.#comprobarPareja();
         }
         else{
             this.primera_carta = card;
         }
     }
 
-    barajarCartas() {
+    #barajarCartas() {
         const main = document.querySelector('main');
         const elementos = Array.from(main.children);
 
@@ -47,20 +48,20 @@ class Memoria {
         cartas.forEach(carta => main.appendChild(carta));
     }
 
-    reiniciarAtributos(){
+    #reiniciarAtributos(){
         this.primera_carta = null;
         this.segunda_carta = null;
         this.tableroBloqueado = false;
     }
 
-    deshabilitarCartas(){
+    #deshabilitarCartas(){
         this.primera_carta.dataset.estado = "revelada";
         this.segunda_carta.dataset.estado = "revelada";
-        this.reiniciarAtributos();
-        this.comprobarJuego();
+        this.#reiniciarAtributos();
+        this.#comprobarJuego();
     }
 
-    comprobarJuego(){
+    #comprobarJuego(){
         let articles = document.getElementsByTagName('article');
         for (let article of articles) {
             if (article.dataset.estado !== "revelada") return false;
@@ -69,7 +70,7 @@ class Memoria {
         return true;
     }
 
-    cubrirCartas(){
+    #cubrirCartas(){
         // Bloqueamos el tablero
         this.tableroBloqueado = true;
 
@@ -86,16 +87,25 @@ class Memoria {
             this.segunda_carta.dataset.estado = "";
 
             // Y los atributos
-            this.reiniciarAtributos();
+            this.#reiniciarAtributos();
         }, 1500)
     }
 
-    comprobarPareja(){
+    #comprobarPareja(){
         // Estructura de cartas article -> h3[0], img[1]
         let alt_primera_carta = this.primera_carta.children[1].alt
         let alt_segunda_carta = this.segunda_carta.children[1].alt
         // Operador ternario
-        alt_primera_carta === alt_segunda_carta ? this.deshabilitarCartas() : this.cubrirCartas();
+        alt_primera_carta === alt_segunda_carta ? this.#deshabilitarCartas() : this.#cubrirCartas();
+    }
+
+    #crearCartasDeArticles(){
+        const articles = document.querySelectorAll("article");
+        articles.forEach((article) => {
+            article.addEventListener("click", (e) => {this.voltearCarta(article)})
+        })
     }
 
 }
+
+new Memoria();

@@ -61,7 +61,11 @@ td{
 
 /* Especificidad (0, 0, 1) */
 th{
-    padding: 10px;
+    padding: 1em;
+}
+
+main > section > button{
+    margin: 0 1rem 0 0;
 }
 
 @media (min-width: 320px) and (max-width: 799px) {

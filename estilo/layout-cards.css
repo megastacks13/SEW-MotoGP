@@ -6,7 +6,6 @@
 main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 10% 5% repeat(4, 1fr);
     column-gap: 1rem;
     row-gap: 1rem;
     margin: 3rem 5rem;
@@ -44,8 +43,6 @@ main > p{
         /* Advertencia de redefinición */
         grid-template-columns: repeat(2, 1fr);
         /* Advertencia de redefinición */
-        grid-template-rows: 10% 5% repeat(7, 1fr);
-        /* Advertencia de redefinición */
         margin: 0 7rem;
         /* Advertencia de redefinición */
         column-gap: 0.1rem;
@@ -56,5 +53,15 @@ main > p{
         height: 4rem;
         /* Advertencia de redefinición */
         margin: 2rem 0;
+        /* Advertencia de redefinición */
+        padding: 0;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 507px) {
+    /*Especificidad: 002*/
+    main > h2{
+        /* Advertencia de redefinición */
+        padding: 0 0 3rem 0;
     }
 }
