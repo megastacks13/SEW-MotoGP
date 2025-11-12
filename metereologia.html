@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
     <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
     <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/ciudad.js"></script>
 </head>
 
@@ -32,19 +33,21 @@
 
 <main>
     <section>
-        <h2></h2>
+        <h2>Texto de muestra</h2>
         <p></p>
     </section>
 
     <section>
         <h3>Información Secundaria:</h3>
-        <p></p>
     </section>
 </main>
 
 <script>
     // Crear el objeto ciudad
     const ciudad = new Ciudad("Motegi", "Japón", "Motegiense");
+    ciudad.getMetereologiaCarrera(() => {
+        ciudad.getMetereologiaEntrenos();
+    });
     ciudad.fill(11631, '36°32′01″N 140°13′39″E');
 
     // Seleccionamos los elementos sin usar id ni class
@@ -54,13 +57,12 @@
 
     const h2 = primeraSeccion.querySelector('h2');
     const p1 = primeraSeccion.querySelector('p');
-    const p2 = segundaSeccion.querySelector('p');
 
     // Rellenamos el contenido
     h2.textContent = ciudad.getNombreCiudad();
     p1.textContent = `Esta ciudad pertenece a ${ciudad.getPaisCiudad()} y su centro está situado en las siguientes coordenadas:`;
     ciudad.writeCoordenadas();
-    p2.innerHTML = ciudad.getInformacionSecundaria();
+    segundaSeccion.innerHTML += ciudad.getInformacionSecundaria();
 </script>
 
 </body>

@@ -6,38 +6,34 @@ class Carrusel {
         this.busqueda = null;
         this.actual = 0;
         this.maximo = 5;
-        this.#procesarJSONFotografias();
     }
 
-    #getFotografias() {
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                url: "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
-                dataType: "jsonp",
-                method: "GET",
-                data: {
-                    tags: "Motegi, MotoGP",
-                    tagmode: "all",
-                    format: "json"
-                },
-                success: function(data) {
-                    data.items.forEach(item =>{
-                        item.media.m = item.media.m.replace("_m.", "_z.")
-                    })
-                    resolve(data.items);
-                },
-                error: function() {
-                    console.error("Error al realizar la llamada AJAX al servicio de Flickr.");
-                    reject("Error al cargar las fotos");
-                }
-            });
+    getFotografias() {
+        $.ajax({
+            url: "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+            dataType: "jsonp",
+            method: "GET",
+            data: {
+                tags: "Motegi, MotoGP",
+                tagmode: "all",
+                format: "json"
+            },
+            success: (data) => {
+                data.items.forEach(item =>{
+                    item.media.m = item.media.m.replace("_m.", "_z.")
+                })
+                this.#procesarJSONFotografias(data.items);
+            },
+            error: function() {
+                console.error("Error al realizar la llamada AJAX al servicio de Flickr.");
+            }
         });
     }
 
     // Recibimos las imágenes
-    async #procesarJSONFotografias(){
-        const fotos = await this.#getFotografias();
+    #procesarJSONFotografias(fotos){
         this.busqueda =  fotos.slice(0,this.maximo);
+        this.cambiarFotografia();
     }
 
     #mostrarFotografias(){
@@ -62,11 +58,12 @@ class Carrusel {
     }
 
     async cambiarFotografia(){
+        this.#mostrarFotografias();
         setInterval(() => {this.#mostrarFotografias();}, 3000);
     }
 }
 
 $(document).ready(async () =>{
     let carrusel = new Carrusel();
-    await carrusel.cambiarFotografia();
+    await carrusel.getFotografias();
 });
