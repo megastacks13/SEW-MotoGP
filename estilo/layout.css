@@ -103,4 +103,9 @@ main > section > button{
         margin: 1rem 3rem;
     }
 
+    article h2+img{
+        margin: 0;
+        width: 100%;
+    }
+
 }
