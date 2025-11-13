@@ -41,6 +41,11 @@ body > p:first-of-type:has(strong) {
     padding: 0 0 0 2em;
 }
 
+/* Especificidad (0, 1, 1) */
+main > :last-child{
+    margin: 0 15rem 1rem 15rem;
+}
+
 /* Especificidad (0, 1, 2) */
 main > aside:last-of-type{
     text-align: center;
@@ -51,6 +56,12 @@ main > aside:last-of-type{
 /* Especificidad (0, 1, 3) */
 main > aside:last-of-type a{
     margin: 0 1rem;
+}
+
+/* Especificidad (0, 0, 4) */
+/* Esto se usa para que al cambiar la imagen no empiece a "saltar" la página por la diferencia de altura de las fotos*/
+main > article h2+img:first-of-type{
+    height: 30rem;
 }
 
 /* Especificidad (0, 0, 1) */

@@ -130,15 +130,15 @@ def generate_html_mid_content(tree:ET.ElementTree, file:typing.TextIO):
     # Resultados Mundial
     file.write('<table>\n')
     file.write('<tr>\n')
-    file.write('<th>Posición</th>\n')
-    file.write('<th>Nombre</th>\n')
-    file.write('<th>Puntos</th>\n')
+    file.write('<th scope="col" id="tPos">Posición</th>\n')
+    file.write('<th scope="col" id="tNombre">Nombre</th>\n')
+    file.write('<th scope="col" id="TPtos">Puntos</th>\n')
     file.write('</tr>\n')
     for i, piloto in enumerate(pilotos_del_ranking):
         file.write('<tr>\n')
-        file.write('<td>%d</td>\n' % (i+1))
-        file.write('<td>%s</td>\n' % piloto.text)
-        file.write('<td>%s</td>\n' % piloto.attrib.get('puntos'))
+        file.write('<td headers="tPos">%d</td>\n' % (i+1))
+        file.write('<td headers="tNombre">%s</td>\n' % piloto.text)
+        file.write('<td headers="tPtos">%s</td>\n' % piloto.attrib.get('puntos'))
         file.write('</tr>\n')
 
     file.write('</table>\n')
