@@ -7,7 +7,7 @@
 @description: Convierte un archivo XML que siga las pautas de circuito.xsd en un altímetro svg.
 
 Para la ejecución de este código se emplea un comando similar al visto en xml2svg:
-python xml2altimetrial.py circuitoEsquema.xml salida.svg
+python xml2altimetria.py circuitoEsquema.xml salida.svg
 """
 import xml.etree.ElementTree as ET
 import sys
@@ -29,7 +29,7 @@ class Svg(object):
         """
         Crea el elemento raíz, el espacio de nombres y la versión
         """
-        self.raiz = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", version="2.0")
+        self.raiz = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", version="2.0", viewBox="0 0 1700 800")
 
     def addRect(self, x, y, width, height, fill, strokeWidth, stroke):
         """
@@ -54,7 +54,7 @@ class Svg(object):
                       r=r,
                       fill=fill)
 
-    def addLine(self, x1, y1, x2, y2, stroke, strokeWith):
+    def addLine(self, x1, y1, x2, y2, stroke, strokeWidth):
         """
         Añade un elemento line
         """
@@ -64,16 +64,16 @@ class Svg(object):
                       x2=x2,
                       y2=y2,
                       stroke=stroke,
-                      strokeWith=strokeWith)
+                      strokeWidth=strokeWidth)
 
-    def addPolyline(self, points, stroke, strokeWith, fill):
+    def addPolyline(self, points, stroke, strokeWidth, fill):
         """
         Añade un elemento polyline
         """
         ET.SubElement(self.raiz, 'polyline',
                       points=points,
                       stroke=stroke,
-                      strokeWith=strokeWith,
+                      strokeWidth=strokeWidth,
                       fill=fill)
 
     def addText(self, texto, x, y, fontFamily, fontSize, style):
@@ -179,7 +179,7 @@ def draw_svg(heights: dict, filename: str):
     svg_instance.addPolyline(
         points=" ".join(points),
         stroke="black",
-        strokeWith="2",
+        strokeWidth="2",
         fill="none"
     )
 
@@ -190,7 +190,7 @@ def draw_svg(heights: dict, filename: str):
         x2=str(margin_left + (len(heights) - 1) * x_scale),
         y2=str(base_y),
         stroke="gray",
-        strokeWith="1"
+        strokeWidth="1"
     )
 
     # Draw the points with the labels
@@ -209,7 +209,7 @@ def draw_svg(heights: dict, filename: str):
 
         # Height text
         svg_instance.addText(
-            texto=str(h),
+            texto=f"{float(h):.1f}",
             x=str(x - 10),
             y=str(y - 10),
             fontFamily="Arial",

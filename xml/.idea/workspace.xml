@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f431f23-1d3e-45c4-8931-25e6ef9e0412" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../js/circuito.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../P8-JS-sesión3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../P9-JS-sesión4.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../circuito.html" beforeDir="false" afterPath="$PROJECT_DIR$/../circuito.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../estilo/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/../estilo/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../js/circuito.js" beforeDir="false" afterPath="$PROJECT_DIR$/../js/circuito.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InfoCircuito.html" beforeDir="false" afterPath="$PROJECT_DIR$/InfoCircuito.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/altrimetria.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml2altimetrial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xml2html.py" beforeDir="false" afterPath="$PROJECT_DIR$/xml2html.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,24 +37,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.xml2altimetrial.executor": "Run",
-    "Python.xml2kml.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "prac9",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Programacion/Universidad 4to/SEW/SEW-MotoGP/xml",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.xml2altimetrial.executor&quot;: &quot;Run&quot;,
+    &quot;Python.xml2kml.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;prac9&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programacion/Universidad 4to/SEW/SEW-MotoGP/xml&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
+        <option value="bundled-python-sdk-b3d66beaba9a-c6efb3732140-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26199.168" />
       </set>
     </attachedChunks>
   </component>

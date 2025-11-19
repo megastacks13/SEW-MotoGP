@@ -132,7 +132,7 @@ def generate_html_mid_content(tree:ET.ElementTree, file:typing.TextIO):
     file.write('<tr>\n')
     file.write('<th scope="col" id="tPos">Posición</th>\n')
     file.write('<th scope="col" id="tNombre">Nombre</th>\n')
-    file.write('<th scope="col" id="TPtos">Puntos</th>\n')
+    file.write('<th scope="col" id="tPtos">Puntos</th>\n')
     file.write('</tr>\n')
     for i, piloto in enumerate(pilotos_del_ranking):
         file.write('<tr>\n')

@@ -79,6 +79,11 @@ main > section > button{
     margin: 0 1rem 0 0;
 }
 
+main > div {
+    width: 75%;
+    height: 25rem;
+}
+
 @media (min-width: 320px) and (max-width: 799px) {
     /* Especificidad (0, 0, 1) */
     header{
@@ -123,6 +128,13 @@ main > section > button{
     /* Especificidad (0, 1, 1) */
     main > :last-child{
         margin: 0 2rem 1rem 2rem;
+    }
+
+    main > div {
+        margin:0;
+        padding: 0;
+        width: 90%;
+        height: 25rem;
     }
 
 }

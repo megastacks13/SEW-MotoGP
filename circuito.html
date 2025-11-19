@@ -11,12 +11,12 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
     <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
     <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/circuito.js"></script>
+
+    <!-- Mapbox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.17.0-beta.1/mapbox-gl.css" rel="stylesheet" />
 </head>
 
 <body>
-<!-- Datos con el contenido que aparece en el navegador -->
 <header>
     <h1><a href="index.html">Moto GP Desktop</a></h1>
     <nav>
@@ -29,8 +29,9 @@
         <a href="ayuda.html">Ayuda</a>
     </nav>
 </header>
-<!-- Desmigue de ubicación -->
+
 <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Circuito</strong></p>
+
 <main>
     <h2>Información general del Circuito</h2>
     <p><input type="file"></p>
@@ -39,7 +40,19 @@
     <p><input type="file"></p>
 
     <h2>Mapa del Circuito</h2>
+    <!-- Div para el mapa -->
     <p><input type="file"></p>
+    <div></div>
 </main>
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Mapbox JS -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.17.0-beta.1/mapbox-gl.js"></script>
+<!-- toGeoJSON -->
+<script src="https://unpkg.com/@tmcw/togeojson@4.5.0/dist/togeojson.umd.js"></script>
+<!-- Tu JS -->
+<script src="js/circuito.js"></script>
+
 </body>
 </html>
