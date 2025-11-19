@@ -60,7 +60,7 @@ main > aside:last-of-type a{
 
 /* Especificidad (0, 0, 4) */
 /* Esto se usa para que al cambiar la imagen no empiece a "saltar" la página por la diferencia de altura de las fotos*/
-main > article h2+img:first-of-type{
+article h2+img{
     height: 30rem;
 }
 
@@ -117,6 +117,12 @@ main > section > button{
     article h2+img{
         margin: 0;
         width: 100%;
+        height:auto;
+    }
+
+    /* Especificidad (0, 1, 1) */
+    main > :last-child{
+        margin: 0 2rem 1rem 2rem;
     }
 
 }
