@@ -51,7 +51,7 @@ class Cronometro {
         clearInterval(this.corriendo);
         this.corriendo = null;
         this.tiempo = 0;
-        this.mostrar();
+        this.#mostrar();
     }
 
     #pruebaPonerBotones(){

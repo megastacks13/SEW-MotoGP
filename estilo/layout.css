@@ -43,7 +43,7 @@ body > p:first-of-type:has(strong) {
 
 /* Especificidad (0, 1, 1) */
 main > :last-child{
-    margin: 0 15rem 1rem 15rem;
+    margin-bottom: 1rem;
 }
 
 /* Especificidad (0, 1, 2) */
@@ -62,7 +62,17 @@ main > aside:last-of-type a{
 /* Esto se usa para que al cambiar la imagen no empiece a "saltar" la página por la diferencia de altura de las fotos*/
 article h2+img{
     height: 30rem;
+    width:auto;
 }
+
+img{
+    width: 65%;
+}
+
+video{
+    width: 65%;
+}
+
 
 /* Especificidad (0, 0, 1) */
 td{
@@ -125,16 +135,15 @@ main > div {
         height:auto;
     }
 
-    /* Especificidad (0, 1, 1) */
-    main > :last-child{
-        margin: 0 2rem 1rem 2rem;
-    }
-
     main > div {
-        margin:0;
+        margin:1.5rem;
         padding: 0;
         width: 90%;
         height: 25rem;
+    }
+
+    img{
+        width: 90%;
     }
 
 }
