@@ -39,25 +39,24 @@
     </section>
     <section>
         <h3>Circuito</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Vista diseñada para la visualización de datos de diferentes circuitos, cuenta con la capacidad de mostrar
+            diferentes tipos de archivos a elección del usuario. Por una parte procesa y renderiza archivos HTML con la
+            idea de mostrar información relevante del mismo. Por otra hace lo propio con archivo SVG, con el objetivo de
+            mostrar la altimetría del circuito. Y finalmente renderiza archivos KML en un mapa de MapBox con el fin de
+            representar la silueta del circuito.</p>
     </section>
     <section>
         <h3>Metereología</h3>
-        <p>Aquí veremos más detalles sobre la localización (Motegi) y cómo será el tiempo durante el fin de semana de carrera.</p>
+        <p>Aquí veremos más detalles sobre la localización (Motegi) y cómo será el tiempo durante el fin de semana de
+            carrera.</p>
         <p>Para los entrenamientos: la media diaria de las diferentes temperaturas. </p>
-        <p>Para la carrera: el desglose hora por hora de todas las medidas climáticas relevantes.</p>
+        <p>Para la carrera: Información más detallada de las medidas climáticas más relevantes en la hora específica
+            de la carrera.</p>
     </section>
     <section>
         <h3>Clasificaciones</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Este apartado muestra al ganador de la carrera disputada en Motegi durante la temporada 24/25 de MotoGP, así
+            cómo la clasificación del mundial justo cuando esta carrera finaliza.</p>
     </section>
     <section>
         <h3>Juegos</h3>
@@ -65,9 +64,16 @@
         <dl>
             <dt>Memoria: </dt>
             <dd>Juego de memoria con cartas de las compañías más relevantes de MotoGP. Encuentra las parejas en el
-                menor tiempo posible.</dd>
-            <dt>Cronómetro: </dt>
-            <dd>Crónometro simple y que no decepciona. Podrás desde activarlo a reiniciarlo, ¡pasando por la etapa de parado incluso!</dd>
+                menor tiempo posible. El tiempo comienza según entras a la página y el juego solo se reinicia al
+                recargar la misma</dd>
+            <dt>Cronómetro (Js): </dt>
+            <dd>Crónometro gestionado desde el lado del cliente. Para usarlo deberás de iniciarlo y pararlo. Una vez
+                parado solo podrás reiniciar, aunque esta última acción no requiere de que el cronómetro sea parado
+                antes de completarse.</dd>
+            <dt>Cronómetro (PHP): </dt>
+            <dd>Crónometro gestionado desde el servidor. Para saber el tiempo pasado deberás de iniciarlo,
+                pararlo y mostrar la información. En caso de no pararlo antes de mostrarlo, se mostrará la información
+                de la última pausa.</dd>
         </dl>
     </section>
 </main>

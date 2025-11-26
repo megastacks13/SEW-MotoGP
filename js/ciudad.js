@@ -65,7 +65,9 @@ class Ciudad {
     }
 
     procesarJsonCarrera(jsonCarrera) {
-        const fecha = jsonCarrera.daily.time[0].split("T")[0];
+        const fecha = jsonCarrera.daily.time[0];
+        // La hora son las 7 porque está puesta la localización de la llamada a la api en Londres
+        const hora = 7;
         const salidaSol = jsonCarrera.daily.sunrise[0].split("T")[1];
         const puestaSol = jsonCarrera.daily.sunset[0].split("T")[1];
         const hourly = jsonCarrera.hourly;
@@ -73,10 +75,17 @@ class Ciudad {
         let section = $("<section>")
 
         $("<h3>").text(`Día de la carrera (${fecha}):`).appendTo(section);
-        $("<pre>").text(`Salida del sol: ${salidaSol}\nPuesta de sol: ${puestaSol}\n `)
-            .appendTo(section);
-        this.#renderHourlyRace(hourly, section);
+        let ul = $("<ul>")
+        $("<li>").text(`Salida del sol: ${salidaSol}`).appendTo(ul);
+        $("<li>").text(`Puesta de sol: ${puestaSol}`).appendTo(ul);
+        $("<li>").text(`Hora: ${hourly.time[hora].split("T")[1]}`).appendTo(ul);
+        $("<li>").text(`Temperatura: ${hourly.temperature_2m[hora]}ºC`).appendTo(ul);
+        $("<li>").text(`Sensación térmica: ${hourly.apparent_temperature[hora]}ºC`).appendTo(ul);
+        $("<li>").text(`Porcentaje de lluvia: ${hourly.rain[hora]*100}%`).appendTo(ul);
+        $("<li>").text(`Velocidad del viento: ${hourly.wind_speed_10m[hora]}km/h`).appendTo(ul);
+        $("<li>").text(`Dirección del viento: ${hourly.wind_direction_10m[hora]}º`).appendTo(ul);
 
+        ul.appendTo(section);
         section.appendTo("main");
 
     }
@@ -102,21 +111,6 @@ class Ciudad {
                 .appendTo(section);
         }
         section.appendTo("main");
-    }
-
-
-    #renderHourlyRace(hourly, appendTo){
-
-        for(let i = 0; i < hourly.time.length; i++){
-            $("<pre>").text(`Hora: ${hourly.time[i].split("T")[1]}
-            -Temperatura: ${hourly.temperature_2m[i]}ºC
-            -Sensación térmica: ${hourly.apparent_temperature[i]}ºC
-            -Porcentaje de lluvia: ${hourly.rain[i]*100}%
-            -Humedad relativa: ${hourly.relative_humidity_2m[i]}%
-            -Velocidad del viento: ${hourly.wind_speed_10m[i]}km/h
-            -Dirección del viento: ${hourly.wind_direction_10m[i]}º`)
-                .appendTo(appendTo);
-        }
     }
 
     #mediasDiarias(array) {

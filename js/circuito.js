@@ -39,7 +39,7 @@ class Circuito {
 }
 
 /* Preguntar*/
-/*class CargadorSVG {
+class CargadorSVG {
     leerArchivoSVG(archivo, domElement) {
         if (archivo && archivo.type !== 'image/svg+xml') {
             alert("El archivo no es un .svg");
@@ -53,22 +53,21 @@ class Circuito {
 
     insertarSVG(archivo, domElement) {
         const parser = new DOMParser();
-        const doc = parser.parseFromString(archivo, "image/svg+xml");
-        $(domElement).before(doc.documentElement);
+        $("<svg>").innerHTML(parser.parseFromString(archivo, "image/svg+xml")).after(domElement);
     }
-}*/
+}
 
-class CargadorSVG {
+/*class CargadorSVG {
     leerArchivoSVG(archivo, domElement) {
         this.archivo = URL.createObjectURL(archivo);
         this.insertarSVG(domElement);
     }
 
     insertarSVG(domElement) {
-        let grafico = $("<img>").attr("src", this.archivo).attr("alt", this.archivo);
+        let grafico = $("<svg>").innerHTML(this.archivo);
         $(domElement).parent().after(grafico);
     }
-}
+}*/
 
 class CargadorKML {
     constructor() {
