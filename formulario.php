@@ -1,214 +1,179 @@
 <?php
-$errorFormulario = false;
-$formularioPOST = "";
-$mostrarFormulario = false;
-$tiempoTranscurrido = "";
+require_once "configuracion.php";
+require_once "claseCronometro.php";
 
-// Inicializar el cronómetro si existe la clase
-if (class_exists('Cronometro')) {
-    $cronometro = new Cronometro();
+session_start();
+
+$config = new Configuracion();
+
+$error = "";
+$errores = [];
+$valores = [];
+
+// Inicializar valores para los inputs
+for ($i = 1; $i <= 10; $i++) {
+    $valores["p$i"] = "";
 }
 
-$errorP1 = "";
-$errorP2 = "";
-$errorP3 = "";
-$errorP4 = "";
-$errorP5 = "";
-$errorP6 = "";
-$errorP7 = "";
-$errorP8 = "";
-$errorP9 = "";
-$errorP10 = "";
-
-// Verificar si se ha presionado "Iniciar prueba"
-if (isset($_POST['iniciar_prueba'])) {
-    $mostrarFormulario = true;
-    if (isset($cronometro)) {
-        $cronometro->arrancar();
-    }
+// Si se pulsó el botón "Iniciar formulario"
+if (isset($_POST['iniciar_formulario'])) {
+    $_SESSION['cronometro_formulario'] = new Cronometro();
+    $_SESSION['cronometro_formulario']->arrancar();
+    $_SESSION['formulario_iniciado'] = true;
 }
 
-// Solo se ejecutará si se han enviado los datos desde el formulario al pulsar el boton Finalizar
-if (isset($_POST['finalizar_prueba'])) {
-    $mostrarFormulario = true;
-    $formularioPOST = $_POST;
+// Si se envió el formulario
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"])) {
 
-    // Validar todas las preguntas
-    if (empty($_POST["p1"])) {
-        $errorP1 = " * Esta pregunta es obligatoria ";
-        $errorFormulario = true;
+    // Guardar valores para mantenerlos en el formulario
+    for ($i = 1; $i <= 10; $i++) {
+        // Manejar diferentes tipos de inputs
+        if ($i == 2) {
+            // Pregunta 2: checkbox múltiple
+            $valores["p$i"] = isset($_POST["p$i"]) ? implode(", ", $_POST["p$i"]) : "";
+        } else {
+            $valores["p$i"] = isset($_POST["p$i"]) ? $_POST["p$i"] : "";
+        }
+
+        // Validar que no esté vacío
+        if (empty($valores["p$i"])) {
+            $errores["p$i"] = " * Esta pregunta es obligatoria";
+        }
     }
 
-    if (empty($_POST["p2"])) {
-        $errorP2 = " * Esta pregunta es obligatoria ";
-        $errorFormulario = true;
-    }
+    // No hay errores → Guardar en la BBDD
+    if (empty($errores)) {
+        // Parar el cronómetro y guardar el tiempo en sesión
+        if (isset($_SESSION['cronometro_formulario'])) {
+            $_SESSION['cronometro_formulario']->parar();
+            $_SESSION['tiempo_formulario'] = $_SESSION['cronometro_formulario']->getTiempo();
+        }
 
-    if (empty($_POST["p3"])) {
-        $errorP3 = " * Debes seleccionar una opción ";
-        $errorFormulario = true;
-    }
+        $res = $config->insertarTestPreguntas(
+                $valores["p1"],
+                $valores["p2"],
+                $valores["p3"],
+                $valores["p4"],
+                $valores["p5"],
+                $valores["p6"],
+                $valores["p7"],
+                $valores["p8"],
+                $valores["p9"],
+                $valores["p10"]
+        );
 
-    if (empty($_POST["p4"])) {
-        $errorP4 = " * Debes seleccionar una opción ";
-        $errorFormulario = true;
-    }
-
-    if (empty($_POST["p5"])) {
-        $errorP5 = " * Debes seleccionar una opción ";
-        $errorFormulario = true;
-    }
-
-    if (empty($_POST["p6"])) {
-        $errorP6 = " * Esta pregunta es obligatoria ";
-        $errorFormulario = true;
-    }
-
-    if (empty($_POST["p7"])) {
-        $errorP7 = " * Debes seleccionar una opción ";
-        $errorFormulario = true;
-    }
-
-    if (empty($_POST["p8"])) {
-        $errorP8 = " * Esta pregunta es obligatoria ";
-        $errorFormulario = true;
-    }
-
-    if (empty($_POST["p9"])) {
-        $errorP9 = " * Debes seleccionar una opción ";
-        $errorFormulario = true;
-    }
-
-    if (empty($_POST["p10"])) {
-        $errorP10 = " * Esta pregunta es obligatoria ";
-        $errorFormulario = true;
-    }
-
-    // Si no hay errores, parar el cronómetro
-    if (!$errorFormulario && isset($cronometro)) {
-        $cronometro->parar();
-        // Obtener el tiempo transcurrido si el método existe
-        if (method_exists($cronometro, 'getTiempoTranscurrido')) {
-            $tiempoTranscurrido = $cronometro->getTiempoTranscurrido();
+        if ($res["success"]) {
+            header("Location: opiniones.php");
+            exit();
+        } else {
+            $error = $res["error"];
         }
     }
 }
 ?>
 
-<?php if (!$mostrarFormulario): ?>
-    <!-- Mostrar botón para iniciar la prueba -->
-    <form action='#' method='post'>
-        <input type='submit' name='iniciar_prueba' value='Iniciar prueba'/>
-    </form>
-<?php else: ?>
-    <!-- Mostrar formulario completo -->
-    <form action='#' method='post' name='formulario'>
-        <?php if ($tiempoTranscurrido): ?>
-            <p><strong>Tiempo empleado: <?php echo htmlspecialchars($tiempoTranscurrido); ?></strong></p>
-        <?php endif; ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='UTF-8' />
+    <meta name='author' content='Jaime Alonso Fernández'/>
+    <meta name='description' content='Página de Juegos'/>
+    <meta name='keywords' content='MotoGP, Moto, Motorbike, Usuario, Ingreso'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <title>MotoGP-Juegos</title>
+    <link rel='stylesheet' type='text/css' href='estilo/estilo.css'/>
+    <link rel='stylesheet' type='text/css' href='estilo/layout.css'/>
+    <link rel='icon' href='multimedia/img/favicon.ico' type='image/x-icon'/>
+</head>
 
-        <p>1. ¿Cuándo se disputó la carrera de Motegi en 2025?</p>
-        <p>
-            <input type='text' name='p1' value="<?php echo isset($_POST['p1']) ? htmlspecialchars($_POST['p1']) : ''; ?>"/>
-            <span><?php echo $errorP1; ?></span>
-        </p>
+<body>
+<header>
+    <h1>Moto GP Desktop</h1>
+</header>
 
-        <p>2. ¿Qué tres tipos de archivos puede procesar y renderizar la vista de "Circuito"?</p>
-        <p>
-            <input type='text' name='p2' value="<?php echo isset($_POST['p2']) ? htmlspecialchars($_POST['p2']) : ''; ?>"/>
-            <span><?php echo $errorP2; ?></span>
-        </p>
+<main>
+    <h2>Test de Preguntas Inicial</h2>
 
-        <p>3. ¿Qué información meteorológica se proporciona específicamente para la carrera?</p>
-        <p>
-            <input type='radio' name='p3' value='Temperatura media diaria' <?php echo (isset($_POST['p3']) && $_POST['p3'] == 'Temperatura media diaria') ? 'checked' : ''; ?>/> Temperatura media diaria<br>
-            <input type='radio' name='p3' value='Información detallada en la hora de la carrera' <?php echo (isset($_POST['p3']) && $_POST['p3'] == 'Información detallada en la hora de la carrera') ? 'checked' : ''; ?>/> Información detallada en la hora de la carrera<br>
-            <input type='radio' name='p3' value='Pronóstico semanal completo' <?php echo (isset($_POST['p3']) && $_POST['p3'] == 'Pronóstico semanal completo') ? 'checked' : ''; ?>/> Pronóstico semanal completo<br>
-            <input type='radio' name='p3' value='Solo probabilidad de lluvia' <?php echo (isset($_POST['p3']) && $_POST['p3'] == 'Solo probabilidad de lluvia') ? 'checked' : ''; ?>/> Solo probabilidad de lluvia
-            <span><?php echo $errorP3; ?></span>
-        </p>
+    <?php if ($error): ?>
+        <p><?php echo $error; ?></p>
+    <?php endif; ?>
 
-        <p>4. ¿Qué se muestra en el apartado de "Clasificaciones"?</p>
-        <p>
-            <input type='radio' name='p4' value='Solo el ganador de la carrera' <?php echo (isset($_POST['p4']) && $_POST['p4'] == 'Solo el ganador de la carrera') ? 'checked' : ''; ?>/> Solo el ganador de la carrera<br>
-            <input type='radio' name='p4' value='Ganador de la carrera y clasificación del mundial' <?php echo (isset($_POST['p4']) && $_POST['p4'] == 'Ganador de la carrera y clasificación del mundial') ? 'checked' : ''; ?>/> Ganador de la carrera y clasificación del mundial<br>
-            <input type='radio' name='p4' value='Resultados de todas las temporadas' <?php echo (isset($_POST['p4']) && $_POST['p4'] == 'Resultados de todas las temporadas') ? 'checked' : ''; ?>/> Resultados de todas las temporadas<br>
-            <input type='radio' name='p4' value='Estadísticas de los pilotos' <?php echo (isset($_POST['p4']) && $_POST['p4'] == 'Estadísticas de los pilotos') ? 'checked' : ''; ?>/> Estadísticas de los pilotos
-            <span><?php echo $errorP4; ?></span>
-        </p>
+    <?php if (!isset($_SESSION['formulario_iniciado'])): ?>
+        <!-- Botón para iniciar el formulario -->
+        <p>Pulse el botón para comenzar el test. Se medirá el tiempo que tarda en completarlo.</p>
+        <form action="" method="post">
+            <input type="submit" name="iniciar_formulario" value="Iniciar formulario">
+        </form>
+    <?php else: ?>
+        <!-- Formulario de preguntas (solo visible después de iniciar) -->
+        <p><strong>Instrucciones:</strong> Complete todas las preguntas. El tiempo está siendo medido desde que inició el test.</p>
 
-        <p>5. ¿Cuál es la principal diferencia entre el cronómetro en JavaScript y el cronómetro en PHP?</p>
-        <p>
-            <input type='radio' name='p5' value='JavaScript es más preciso' <?php echo (isset($_POST['p5']) && $_POST['p5'] == 'JavaScript es más preciso') ? 'checked' : ''; ?>/> JavaScript es más preciso<br>
-            <input type='radio' name='p5' value='JavaScript se ejecuta en cliente, PHP en servidor' <?php echo (isset($_POST['p5']) && $_POST['p5'] == 'JavaScript se ejecuta en cliente, PHP en servidor') ? 'checked' : ''; ?>/> JavaScript se ejecuta en cliente, PHP en servidor<br>
-            <input type='radio' name='p5' value='PHP tiene más funciones' <?php echo (isset($_POST['p5']) && $_POST['p5'] == 'PHP tiene más funciones') ? 'checked' : ''; ?>/> PHP tiene más funciones<br>
-            <input type='radio' name='p5' value='No hay diferencia' <?php echo (isset($_POST['p5']) && $_POST['p5'] == 'No hay diferencia') ? 'checked' : ''; ?>/> No hay diferencia
-            <span><?php echo $errorP5; ?></span>
-        </p>
+        <form action="" method="post">
+            <p>1. ¿Cuándo se disputó la carrera de Motegi en 2025?</p>
+            <input type="date" name="p1" value="<?php echo isset($valores['p1']) ? $valores['p1'] : '' ?>">
+            <?php echo isset($errores['p1']) ? $errores['p1'] : '' ?>
 
-        <p>6. ¿Cuál es el nombre completo del piloto destacado en la página "Piloto"?</p>
-        <p>
-            <input type='text' name='p6' value="<?php echo isset($_POST['p6']) ? htmlspecialchars($_POST['p6']) : ''; ?>"/>
-            <span><?php echo $errorP6; ?></span>
-        </p>
+            <p>2. ¿Qué tipos de archivos puede procesar y renderizar la vista de "Circuito"? (Seleccione todos los que correspondan)</p>
+            <input type="checkbox" name="p2[]" value="JPEG" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'JPEG') !== false) ? 'checked' : '' ?>> JPEG<br>
+            <input type="checkbox" name="p2[]" value="PNG" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'PNG') !== false) ? 'checked' : '' ?>> PNG<br>
+            <input type="checkbox" name="p2[]" value="SVG" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'SVG') !== false) ? 'checked' : '' ?>> SVG<br>
+            <input type="checkbox" name="p2[]" value="PDF" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'PDF') !== false) ? 'checked' : '' ?>> PDF<br>
+            <input type="checkbox" name="p2[]" value="MP4" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'MP4') !== false) ? 'checked' : '' ?>> MP4
+            <?php echo isset($errores['p2']) ? $errores['p2'] : '' ?>
 
-        <p>7. ¿En qué equipo corrió Luca Marini en el año 2024?</p>
-        <p>
-            <select name='p7'>
-                <option value='' <?php echo (!isset($_POST['p7']) || $_POST['p7'] == '') ? 'selected' : ''; ?>>Selecciona una opción</option>
-                <option value='Ducati Corse' <?php echo (isset($_POST['p7']) && $_POST['p7'] == 'Ducati Corse') ? 'selected' : ''; ?>>Ducati Corse</option>
-                <option value='Honda Repsol Team' <?php echo (isset($_POST['p7']) && $_POST['p7'] == 'Honda Repsol Team') ? 'selected' : ''; ?>>Honda Repsol Team</option>
-                <option value='Yamaha Factory Racing' <?php echo (isset($_POST['p7']) && $_POST['p7'] == 'Yamaha Factory Racing') ? 'selected' : ''; ?>>Yamaha Factory Racing</option>
-                <option value='Aprilia Racing' <?php echo (isset($_POST['p7']) && $_POST['p7'] == 'Aprilia Racing') ? 'selected' : ''; ?>>Aprilia Racing</option>
+            <p>3. ¿Qué información meteorológica se proporciona específicamente para la carrera?</p>
+            <select name="p3">
+                <option value="">Seleccione una opción</option>
+                <option value="Temperatura" <?php echo (isset($valores['p3']) && $valores['p3'] == 'Temperatura') ? 'selected' : '' ?>>Temperatura</option>
+                <option value="Humedad" <?php echo (isset($valores['p3']) && $valores['p3'] == 'Humedad') ? 'selected' : '' ?>>Humedad</option>
+                <option value="Viento" <?php echo (isset($valores['p3']) && $valores['p3'] == 'Viento') ? 'selected' : '' ?>>Viento</option>
+                <option value="Todas las anteriores" <?php echo (isset($valores['p3']) && $valores['p3'] == 'Todas las anteriores') ? 'selected' : '' ?>>Todas las anteriores</option>
             </select>
-            <span><?php echo $errorP7; ?></span>
-        </p>
+            <?php echo isset($errores['p3']) ? $errores['p3'] : '' ?>
 
-        <p>8. ¿Cuántos puntos obtuvo Luca Marini en la temporada 2024?</p>
-        <p>
-            <input type='text' name='p8' value="<?php echo isset($_POST['p8']) ? htmlspecialchars($_POST['p8']) : ''; ?>"/>
-            <span><?php echo $errorP8; ?></span>
-        </p>
+            <p>4. ¿Qué se muestra en el apartado de "Clasificaciones"?</p>
+            <input type="text" name="p4" value="<?php echo isset($valores['p4']) ? $valores['p4'] : '' ?>" placeholder="Escriba su respuesta">
+            <?php echo isset($errores['p4']) ? $errores['p4'] : '' ?>
 
-        <p>9. ¿Quién ganó la última carrera en Motegi?</p>
-        <p>
-            <select name='p9'>
-                <option value='' <?php echo (!isset($_POST['p9']) || $_POST['p9'] == '') ? 'selected' : ''; ?>>Selecciona una opción</option>
-                <option value='Marc Marquez' <?php echo (isset($_POST['p9']) && $_POST['p9'] == 'Marc Marquez') ? 'selected' : ''; ?>>Marc Marquez</option>
-                <option value='Francesco Bagnaia' <?php echo (isset($_POST['p9']) && $_POST['p9'] == 'Francesco Bagnaia') ? 'selected' : ''; ?>>Francesco Bagnaia</option>
-                <option value='Alex Marquez' <?php echo (isset($_POST['p9']) && $_POST['p9'] == 'Alex Marquez') ? 'selected' : ''; ?>>Alex Marquez</option>
-                <option value='Luca Marini' <?php echo (isset($_POST['p9']) && $_POST['p9'] == 'Luca Marini') ? 'selected' : ''; ?>>Luca Marini</option>
+            <p>5. ¿Cuál es la principal diferencia entre el cronómetro en JavaScript y el cronómetro en PHP?</p>
+            <input type="radio" name="p5" value="JavaScript se ejecuta en el servido y PHP en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'JavaScript se ejecuta en el cliente') ? 'checked' : '' ?>> JavaScript se ejecuta en el cliente<br>
+            <input type="radio" name="p5" value="PHP se ejecuta en el servido y JavaScript en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP se ejecuta en el servidor') ? 'checked' : '' ?>> PHP se ejecuta en el servidor<br>
+            <input type="radio" name="p5" value="JavaScript es más preciso" <?php echo (isset($valores['p5']) && $valores['p5'] == 'JavaScript es más preciso') ? 'checked' : '' ?>> JavaScript es más preciso<br>
+            <input type="radio" name="p5" value="PHP necesita recargar la página" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP necesita recargar la página') ? 'checked' : '' ?>> PHP necesita recargar la página
+            <?php echo isset($errores['p5']) ? $errores['p5'] : '' ?>
+
+            <p>6. ¿Cuál es el nombre completo del piloto destacado en la página "Piloto"?</p>
+            <input type="text" name="p6" value="<?php echo isset($valores['p6']) ? $valores['p6'] : '' ?>">
+            <?php echo isset($errores['p6']) ? $errores['p6'] : '' ?>
+
+            <p>7. ¿En qué equipo corrió Luca Marini en el año 2024?</p>
+            <input type="radio" name="p7" value="Repsol Honda" <?php echo (isset($valores['p7']) && $valores['p7'] == 'Repsol Honda') ? 'checked' : '' ?>> Repsol Honda<br>
+            <input type="radio" name="p7" value="Ducati Lenovo" <?php echo (isset($valores['p7']) && $valores['p7'] == 'Ducati Lenovo') ? 'checked' : '' ?>> Ducati Lenovo<br>
+            <input type="radio" name="p7" value="Monster Energy Yamaha" <?php echo (isset($valores['p7']) && $valores['p7'] == 'Monster Energy Yamaha') ? 'checked' : '' ?>> Monster Energy Yamaha<br>
+            <input type="radio" name="p7" value="Aprilia Racing" <?php echo (isset($valores['p7']) && $valores['p7'] == 'Aprilia Racing') ? 'checked' : '' ?>> Aprilia Racing
+            <?php echo isset($errores['p7']) ? $errores['p7'] : '' ?>
+
+            <p>8. ¿Cuántos puntos obtuvo Luca Marini en la temporada 2024?</p>
+            <input type="number" name="p8" value="<?php echo isset($valores['p8']) ? $valores['p8'] : '' ?>" min="0" max="500">
+            <?php echo isset($errores['p8']) ? $errores['p8'] : '' ?>
+
+            <p>9. ¿Quién ganó la última carrera en Motegi?</p>
+            <input type="text" name="p9" value="<?php echo isset($valores['p9']) ? $valores['p9'] : '' ?>">
+            <?php echo isset($errores['p9']) ? $errores['p9'] : '' ?>
+
+            <p>10. ¿Quién lideraba el campeonato después de la carrera de Motegi y con cuántos puntos? (Seleccione la opción correcta)</p>
+            <select name="p10">
+                <option value="">Seleccione una opción</option>
+                <option value="Pecco Bagnaia - 285 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Pecco Bagnaia - 285 puntos') ? 'selected' : '' ?>>Pecco Bagnaia - 285 puntos</option>
+                <option value="Jorge Martín - 275 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Jorge Martín - 275 puntos') ? 'selected' : '' ?>>Jorge Martín - 275 puntos</option>
+                <option value="Marc Márquez - 265 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Marc Márquez - 265 puntos') ? 'selected' : '' ?>>Marc Márquez - 265 puntos</option>
+                <option value="Enea Bastianini - 255 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Enea Bastianini - 255 puntos') ? 'selected' : '' ?>>Enea Bastianini - 255 puntos</option>
             </select>
-            <span><?php echo $errorP9; ?></span>
-        </p>
+            <?php echo isset($errores['p10']) ? $errores['p10'] : '' ?>
 
-        <p>10. ¿Quién lideraba el campeonato después de la carrera de Motegi y con cuántos puntos?</p>
-        <p>
-            <input type='text' name='p10' value="<?php echo isset($_POST['p10']) ? htmlspecialchars($_POST['p10']) : ''; ?>"/>
-            <span><?php echo $errorP10; ?></span>
-        </p>
-
-        <p>
-            <input type='submit' name='finalizar_prueba' value='Finalizar prueba'/>
-        </p>
-    </form>
-
-    <?php
-    if (isset($_POST['finalizar_prueba'])) {
-        echo "<h3>Array asociativo enviado por POST</h3>";
-        echo "<pre>";
-        print_r($formularioPOST);
-        echo "</pre>";
-
-        if ($errorFormulario) {
-            echo "<h4>Formulario NO PROCESADO en el servidor</h4>";
-            echo "<p>Por favor, responde todas las preguntas.</p>";
-        } else {
-            echo "<h4>Formulario PROCESADO correctamente</h4>";
-            if ($tiempoTranscurrido) {
-                echo "<p>Tiempo empleado para completar la prueba: " . htmlspecialchars($tiempoTranscurrido) . "</p>";
-            }
-        }
-    }
-    ?>
-<?php endif; ?>
+            <p><input type="submit" name="enviar_respuestas" value="Enviar respuestas"></p>
+        </form>
+    <?php endif; ?>
+</main>
+</body>
+</html>

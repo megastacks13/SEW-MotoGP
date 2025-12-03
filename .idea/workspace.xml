@@ -8,14 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/P11-PHP.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configuracion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/formulario.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/claseCronometro.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/configuracionVista.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/opiniones.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P10-PHP.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuracion.php" beforeDir="false" afterPath="$PROJECT_DIR$/configuracion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cronometro.php" beforeDir="false" afterPath="$PROJECT_DIR$/cronometro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formulario.php" beforeDir="false" afterPath="$PROJECT_DIR$/formulario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegos.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xml/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xml/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xml/.idea/xml.iml" beforeDir="false" afterPath="$PROJECT_DIR$/xml/.idea/xml.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
