@@ -9,15 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ayuda.html" beforeDir="false" afterPath="$PROJECT_DIR$/ayuda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/circuito.html" beforeDir="false" afterPath="$PROJECT_DIR$/circuito.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/claseCronometro.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/cronometro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuracionVista.php" beforeDir="false" afterPath="$PROJECT_DIR$/configuracionVista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cronometro.php" beforeDir="false" afterPath="$PROJECT_DIR$/cronometroVista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/formulario.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/formulario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/ciudad.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/ciudad.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegos.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opiniones.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/opiniones.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +121,7 @@
       <workItem from="1764176060695" duration="1148000" />
       <workItem from="1764774815528" duration="17157000" />
       <workItem from="1764843226060" duration="2201000" />
-      <workItem from="1764854617275" duration="654000" />
+      <workItem from="1764854617275" duration="976000" />
     </task>
     <servers />
   </component>
