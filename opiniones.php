@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Guardar observación del facilitador
     if (isset($_POST["guardar_observacion"])) {
         $obs = isset($_POST["observacion"]) ? $_POST["observacion"] : "";
-        $res = $config->insertarObservacionFacilitador($obs);
+        $res = $config->insertarObservacionFacilitador(isset($obs)? $obs : "Sin Comentarios");
 
         if (isset($res["success"]) && $res["success"]) {
             // Limpiar variables de sesión
@@ -76,9 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </body>
             </html>';
             exit();
-        } else {
-            $errores["obs"] = isset($res["error"]) ? $res["error"] : "";
-            $mostrar_observaciones = true; // seguir mostrando el formulario
         }
 
     }

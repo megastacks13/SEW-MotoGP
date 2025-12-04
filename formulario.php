@@ -22,6 +22,7 @@ if (isset($_POST['iniciar_formulario'])) {
     $_SESSION['formulario_iniciado'] = true;
 }
 
+
 // Si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"])) {
 
@@ -101,24 +102,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"]))
     <?php if (!isset($_SESSION['formulario_iniciado'])): ?>
         <!-- Botón para iniciar el formulario -->
         <p>Pulse el botón para comenzar el test. Se medirá el tiempo que tarda en completarlo.</p>
-        <form action="" method="post">
-            <input type="submit" name="iniciar_formulario" value="Iniciar formulario">
+        <form method="post">
+            <input type="submit" name="iniciar_formulario" value="Iniciar formulario" onclick="window.open('index.html', '_blank');">
         </form>
     <?php else: ?>
         <!-- Formulario de preguntas (solo visible después de iniciar) -->
         <p><strong>Instrucciones:</strong> Complete todas las preguntas. El tiempo está siendo medido desde que inició el test.</p>
 
-        <form action="" method="post">
-            <p>1. ¿Cuándo se disputó la carrera de Motegi en 2025?</p>
-            <input type="date" name="p1" value="<?php echo isset($valores['p1']) ? $valores['p1'] : '' ?>">
+        <form method="post">
+            <p>1. ¿Que día hizo más frío en los entrenamientos para la carrera?</p>
+            <select name="p1">
+                <option value="">Seleccione una opción</option>
+                <option value="24-Sept" <?php echo (isset($valores['p1']) && $valores['p1'] == '24-Sept') ? 'selected' : '' ?>>24-Sept</option>
+                <option value="25-Sept" <?php echo (isset($valores['p1']) && $valores['p1'] == '25-Sept') ? 'selected' : '' ?>>25-Sept</option>
+                <option value="26-Sept" <?php echo (isset($valores['p1']) && $valores['p1'] == '26-Sept') ? 'selected' : '' ?>>26-Sept</option>
+                <option value="27-Sept" <?php echo (isset($valores['p1']) && $valores['p1'] == '27-Sept') ? 'selected' : '' ?>>27-Sept</option>
+            </select>
             <?php echo isset($errores['p1']) ? $errores['p1'] : '' ?>
 
             <p>2. ¿Qué tipos de archivos puede procesar y renderizar la vista de "Circuito"? (Seleccione todos los que correspondan)</p>
-            <input type="checkbox" name="p2[]" value="JPEG" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'JPEG') !== false) ? 'checked' : '' ?>> JPEG<br>
+            <input type="checkbox" name="p2[]" value="KML" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'JPEG') !== false) ? 'checked' : '' ?>> KML<br>
             <input type="checkbox" name="p2[]" value="PNG" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'PNG') !== false) ? 'checked' : '' ?>> PNG<br>
             <input type="checkbox" name="p2[]" value="SVG" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'SVG') !== false) ? 'checked' : '' ?>> SVG<br>
             <input type="checkbox" name="p2[]" value="PDF" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'PDF') !== false) ? 'checked' : '' ?>> PDF<br>
-            <input type="checkbox" name="p2[]" value="MP4" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'MP4') !== false) ? 'checked' : '' ?>> MP4
+            <input type="checkbox" name="p2[]" value="HTML" <?php echo (isset($valores['p2']) && strpos($valores['p2'], 'HTML') !== false) ? 'checked' : '' ?>> HTML
             <?php echo isset($errores['p2']) ? $errores['p2'] : '' ?>
 
             <p>3. ¿Qué información meteorológica se proporciona específicamente para la carrera?</p>
@@ -132,12 +139,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"]))
             <?php echo isset($errores['p3']) ? $errores['p3'] : '' ?>
 
             <p>4. ¿Qué se muestra en el apartado de "Clasificaciones"?</p>
-            <input type="text" name="p4" value="<?php echo isset($valores['p4']) ? $valores['p4'] : '' ?>" placeholder="Escriba su respuesta">
+            <select name="p4">
+                <option value="">Seleccione una opción</option>
+                <option value="La clasificación global después de la carrera" <?php echo (isset($valores['p4']) && $valores['p4'] == 'La clasificación global después de la carrera') ? 'selected' : '' ?>>La clasificación global después de la carrera</option>
+                <option value="Los ganadores de la carrera " <?php echo (isset($valores['p4']) && $valores['p4'] == 'Los ganadores de la carrera') ? 'selected' : '' ?>>Los ganadores de la carrera</option>
+                <option value="La clasificación al final de la temporada " <?php echo (isset($valores['p4']) && $valores['p4'] == 'La clasificación al final de la temporada ') ? 'selected' : '' ?>>La clasificación al final de la temporada </option>
+                <option value="La clasificación de la temporada pasada" <?php echo (isset($valores['p4']) && $valores['p4'] == 'La clasificación de la temporada pasada') ? 'selected' : '' ?>>La clasificación de la temporada pasada</option>
+            </select>
             <?php echo isset($errores['p4']) ? $errores['p4'] : '' ?>
 
             <p>5. ¿Cuál es la principal diferencia entre el cronómetro en JavaScript y el cronómetro en PHP?</p>
-            <input type="radio" name="p5" value="JavaScript se ejecuta en el servido y PHP en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'JavaScript se ejecuta en el cliente') ? 'checked' : '' ?>> JavaScript se ejecuta en el cliente<br>
-            <input type="radio" name="p5" value="PHP se ejecuta en el servido y JavaScript en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP se ejecuta en el servidor') ? 'checked' : '' ?>> PHP se ejecuta en el servidor<br>
+            <input type="radio" name="p5" value="JavaScript se ejecuta en el servido y PHP en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'JavaScript se ejecuta en el servido y PHP en el cliente') ? 'checked' : '' ?>> JavaScript se ejecuta en el servido y PHP en el cliente<br>
+            <input type="radio" name="p5" value="PHP se ejecuta en el servido y JavaScript en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP se ejecuta en el servido y JavaScript en el cliente') ? 'checked' : '' ?>> PHP se ejecuta en el servido y JavaScript en el cliente<br>
             <input type="radio" name="p5" value="JavaScript es más preciso" <?php echo (isset($valores['p5']) && $valores['p5'] == 'JavaScript es más preciso') ? 'checked' : '' ?>> JavaScript es más preciso<br>
             <input type="radio" name="p5" value="PHP necesita recargar la página" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP necesita recargar la página') ? 'checked' : '' ?>> PHP necesita recargar la página
             <?php echo isset($errores['p5']) ? $errores['p5'] : '' ?>
@@ -164,10 +177,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"]))
             <p>10. ¿Quién lideraba el campeonato después de la carrera de Motegi y con cuántos puntos? (Seleccione la opción correcta)</p>
             <select name="p10">
                 <option value="">Seleccione una opción</option>
-                <option value="Pecco Bagnaia - 285 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Pecco Bagnaia - 285 puntos') ? 'selected' : '' ?>>Pecco Bagnaia - 285 puntos</option>
-                <option value="Jorge Martín - 275 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Jorge Martín - 275 puntos') ? 'selected' : '' ?>>Jorge Martín - 275 puntos</option>
-                <option value="Marc Márquez - 265 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Marc Márquez - 265 puntos') ? 'selected' : '' ?>>Marc Márquez - 265 puntos</option>
-                <option value="Enea Bastianini - 255 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Enea Bastianini - 255 puntos') ? 'selected' : '' ?>>Enea Bastianini - 255 puntos</option>
+                <option value="Pecco Bagnaia - 514 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Pecco Bagnaia - 514 puntos') ? 'selected' : '' ?>>Pecco Bagnaia - 514 puntos</option>
+                <option value="Jorge Martín - 541 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Jorge Martín - 541 puntos') ? 'selected' : '' ?>>Jorge Martín - 541 puntos</option>
+                <option value="Marc Márquez - 541 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Marc Márquez - 541 puntos') ? 'selected' : '' ?>>Marc Márquez - 541 puntos</option>
+                <option value="Enea Bastianini - 560 puntos" <?php echo (isset($valores['p10']) && $valores['p10'] == 'Enea Bastianini - 560 puntos') ? 'selected' : '' ?>>Enea Bastianini - 560 puntos</option>
             </select>
             <?php echo isset($errores['p10']) ? $errores['p10'] : '' ?>
 

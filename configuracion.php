@@ -156,7 +156,7 @@ class Configuracion {
     ");
 
         $stmt->bind_param(
-            "isibssi",
+            "isisssi",
             $usuario_id,
             $dispositivo,
             $tiempo,
