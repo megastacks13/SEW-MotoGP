@@ -1,7 +1,6 @@
 <?php
-if (!class_exists('Configuracion')) {
-    require_once 'configuracion.php';
-}
+require_once 'configuracion.php';
+
 $config = new Configuracion();
 ?>
 <!DOCTYPE html>

@@ -104,10 +104,12 @@ class Ciudad {
         for (let i = 0; i < mediasTemperatura.length; i++) {
             const fecha = hourly.time[i*24].split("T")[0];
             $("<h4>").text(`Día: ${fecha}`).appendTo(section);
-            $("<p>").text(`- Temperatura: ${mediasTemperatura[i]}ºC`).appendTo(section);
-            $("<p>").text(`- Porcentaje de lluvia: ${mediasLluvia[i]}%`).appendTo(section);
-            $("<p>").text(`- Humedad relativa: ${mediasHumedad[i]}%`).appendTo(section);
-            $("<p>").text(`- Velocidad del viento: ${mediasViento[i]} km/h`).appendTo(section);
+            let ul = $("<ul>");
+            $("<li>").text(`Temperatura: ${mediasTemperatura[i]}ºC`).appendTo(ul);
+            $("<li>").text(`Porcentaje de lluvia: ${mediasLluvia[i]}%`).appendTo(ul);
+            $("<li>").text(`Humedad relativa: ${mediasHumedad[i]}%`).appendTo(ul);
+            $("<li>").text(`Velocidad del viento: ${mediasViento[i]} km/h`).appendTo(ul);
+            ul.appendTo(section);
         }
         section.appendTo("main");
     }

@@ -1,6 +1,6 @@
 <?php
 require_once "configuracion.php";
-require_once "claseCronometro.php";
+require_once "cronometro.php";
 
 session_start();
 
@@ -82,9 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"]))
     <meta name='keywords' content='MotoGP, Moto, Motorbike, Usuario, Ingreso'/>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <title>MotoGP-Juegos</title>
-    <link rel='stylesheet' type='text/css' href='estilo/estilo.css'/>
-    <link rel='stylesheet' type='text/css' href='estilo/layout.css'/>
-    <link rel='icon' href='multimedia/img/favicon.ico' type='image/x-icon'/>
+    <link rel='stylesheet' type='text/css' href='../estilo/estilo.css'/>
+    <link rel='stylesheet' type='text/css' href='../estilo/layout.css'/>
+    <link rel='icon' href='../multimedia/img/favicon.ico' type='image/x-icon'/>
 </head>
 
 <body>
@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"]))
 
             <p>5. ¿Cuál es la principal diferencia entre el cronómetro en JavaScript y el cronómetro en PHP?</p>
             <input type="radio" name="p5" value="JavaScript se ejecuta en el servido y PHP en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'JavaScript se ejecuta en el servido y PHP en el cliente') ? 'checked' : '' ?>> JavaScript se ejecuta en el servido y PHP en el cliente<br>
-            <input type="radio" name="p5" value="PHP se ejecuta en el servido y JavaScript en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP se ejecuta en el servido y JavaScript en el cliente') ? 'checked' : '' ?>> PHP se ejecuta en el servido y JavaScript en el cliente<br>
+            <input type="radio" name="p5" value="PHP se ejecuta en el servidor y JavaScript en el cliente" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP se ejecuta en el servido y JavaScript en el cliente') ? 'checked' : '' ?>> PHP se ejecuta en el servido y JavaScript en el cliente<br>
             <input type="radio" name="p5" value="JavaScript es más preciso" <?php echo (isset($valores['p5']) && $valores['p5'] == 'JavaScript es más preciso') ? 'checked' : '' ?>> JavaScript es más preciso<br>
             <input type="radio" name="p5" value="PHP necesita recargar la página" <?php echo (isset($valores['p5']) && $valores['p5'] == 'PHP necesita recargar la página') ? 'checked' : '' ?>> PHP necesita recargar la página
             <?php echo isset($errores['p5']) ? $errores['p5'] : '' ?>

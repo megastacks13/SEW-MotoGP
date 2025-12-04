@@ -32,7 +32,8 @@ article img {
     position: absolute;
     border-radius: 0.5em;
     /* Advertencia de no color de fondo */
-    background: #1C7CCC;
+    background: #515052;
+    color: #FFFFFF;
     backface-visibility: hidden;
 }
 

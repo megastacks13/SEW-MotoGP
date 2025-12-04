@@ -56,9 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <meta name="keywords" content="MotoGP, Moto, Motorbike, Usuario, Ingreso"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <title>MotoGP-Juegos - Gracias</title>
-                <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
-                <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
-                <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon"/>
+                <link rel="stylesheet" type="text/css" href="../estilo/estilo.css"/>
+                <link rel="stylesheet" type="text/css" href="../estilo/layout.css"/>
+                <link rel="icon" href="../multimedia/img/favicon.ico" type="image/x-icon"/>
             </head>
             
             <body>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <main>
                     <h2>¡Gracias por tu participación!</h2>
                     <p>Tu observación ha sido registrada correctamente.</p>
-                    <form action="index.html">
+                    <form action="../index.html">
                         <button type="submit">Volver al inicio</button>
                     </form>
                 </main>
@@ -91,9 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name='keywords' content='MotoGP, Moto, Motorbike, Usuario, Ingreso'/>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <title>MotoGP-Juegos</title>
-    <link rel='stylesheet' type='text/css' href='estilo/estilo.css'/>
-    <link rel='stylesheet' type='text/css' href='estilo/layout.css'/>
-    <link rel='icon' href='multimedia/img/favicon.ico' type='image/x-icon'/>
+    <link rel='stylesheet' type='text/css' href='../estilo/estilo.css'/>
+    <link rel='stylesheet' type='text/css' href='../estilo/layout.css'/>
+    <link rel='icon' href='../multimedia/img/favicon.ico' type='image/x-icon'/>
 </head>
 
 <body>
