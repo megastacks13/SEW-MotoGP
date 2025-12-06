@@ -1,7 +1,30 @@
 <?php
-require_once 'configuracion.php';
+require_once 'php/configuracion.php';
 
 $config = new Configuracion();
+$mensaje = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['generar_csv'])) {
+        $resultado = $config->exportarCSV();
+    }
+    elseif (isset($_POST['eliminar_bbdd'])) {
+        $resultado = $config->eliminarBaseDatos();
+        if ($resultado['success']) {
+            $mensaje = "Base de datos eliminada exitosamente";
+        } else {
+            $mensaje = "Error al eliminar base de datos: " . $resultado['error'];
+        }
+    }
+    elseif (isset($_POST['vaciar_bbdd'])) {
+        $resultado = $config->reiniciarBaseDatos();
+        if ($resultado['success']) {
+            $mensaje = "Base de datos vaciada exitosamente";
+        } else {
+            $mensaje = "Error al vaciar base de datos: " . $resultado['error'];
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,7 +34,7 @@ $config = new Configuracion();
     <meta name='description' content='Página de Juegos'/>
     <meta name='keywords' content='MotoGP, Moto, Motorbike, Usuario, Ingreso'/>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
-    <title>MotoGP-Juegos</title>
+    <title>MotoGP-Configuración</title>
     <link rel='stylesheet' type='text/css' href='estilo/estilo.css'/>
     <link rel='stylesheet' type='text/css' href='estilo/layout.css'/>
     <link rel='icon' href='multimedia/img/favicon.ico' type='image/x-icon'/>
@@ -22,53 +45,19 @@ $config = new Configuracion();
     <h1>Moto GP Desktop</h1>
 </header>
 <main>
-    <h2>Registro de usuario para realizar el formulario</h2>
-    <!-- Mostrar formulario completo -->
-    <form action='#' method='post' name='formularioRegistro'>
-        <p>¿Profesión?</p>
-        <p>
-            <input type='text' name='profesion' value="<?php echo isset($_POST['profesion']) ? htmlspecialchars($_POST['profesion']) : ''; ?>"/>
-        </p>
+    <h2>Configuración de BBDD</h2>
 
-        <p>¿Edad?</p>
-        <p>
-            <input type='number' name='edad' value="<?php echo isset($_POST['edad']) ? htmlspecialchars($_POST['edad']) : ''; ?>"/>
-        </p>
+    <?php if ($mensaje): ?>
+        <p><?php echo htmlspecialchars($mensaje); ?></p>
+    <?php endif; ?>
 
-        <p>¿Género?</p>
+    <!-- Formulario para gestión de BBDD -->
+    <form action='#' method='post'>
         <p>
-            <input type='radio' name='genero' value='Hombre' <?php echo (isset($_POST['genero']) && $_POST['genero'] == 'Hombre') ? 'checked' : ''; ?>/> Hombre<br>
-            <input type='radio' name='genero' value='Mujer' <?php echo (isset($_POST['genero']) && $_POST['genero'] == 'Mujer') ? 'checked' : ''; ?>/> Mujer<br>
-            <input type='radio' name='genero' value='Otro' <?php echo (isset($_POST['genero']) && $_POST['genero'] == 'Otro') ? 'checked' : ''; ?>/> Otro<br>
+            <input type='submit' name='generar_csv' value='Generar CSV'/>
+            <input type='submit' name='eliminar_bbdd' value='Eliminar BBDD'/>
+            <input type='submit' name='vaciar_bbdd' value='Vaciar BBDD'/>
         </p>
-
-        <p>¿Pericia Informática?</p>
-        <p>
-            <input type='radio' name='pericia' value='0' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '0') ? 'checked' : ''; ?>/> 0<br>
-            <input type='radio' name='pericia' value='1' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '1') ? 'checked' : ''; ?>/> 1<br>
-            <input type='radio' name='pericia' value='2' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '2') ? 'checked' : ''; ?>/> 2<br>
-            <input type='radio' name='pericia' value='3' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '3') ? 'checked' : ''; ?>/> 3<br>
-            <input type='radio' name='pericia' value='4' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '4') ? 'checked' : ''; ?>/> 4<br>
-            <input type='radio' name='pericia' value='5' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '5') ? 'checked' : ''; ?>/> 5<br>
-            <input type='radio' name='pericia' value='6' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '6') ? 'checked' : ''; ?>/> 6<br>
-            <input type='radio' name='pericia' value='7' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '7') ? 'checked' : ''; ?>/> 7<br>
-            <input type='radio' name='pericia' value='8' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '8') ? 'checked' : ''; ?>/> 8<br>
-            <input type='radio' name='pericia' value='9' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '9') ? 'checked' : ''; ?>/> 9<br>
-            <input type='radio' name='pericia' value='10' <?php echo (isset($_POST['pericia']) && $_POST['pericia'] == '10') ? 'checked' : ''; ?>/> 10
-        </p>
-        <p>
-            <input type='submit' name='finalizar_registro' value='Finalizar registro'/>
-        </p>
-        <?php
-        if (isset($_POST['finalizar_registro'])) {
-            $resultado = $config->insertarUsuario($_POST['profesion'], $_POST['edad'], $_POST['genero'], $_POST['pericia']);
-            if ($resultado['success']) {
-                header("Location: juegos.html");
-            } else {
-                echo "<p'>Error al registrar el usuario: " . $resultado['error'] . "</p>";
-            }
-        }
-        ?>
     </form>
 </main>
 </body>

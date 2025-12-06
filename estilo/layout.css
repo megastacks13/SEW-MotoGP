@@ -94,7 +94,7 @@ main > div {
     height: 25rem;
 }
 
-@media (min-width: 320px) and (max-width: 799px) {
+@media (min-width: 320px) and (max-width: 1000px) {
     /* Especificidad (0, 0, 1) */
     header{
         /* Advertencia de redefinición */
@@ -105,6 +105,10 @@ main > div {
     nav{
         /* Advertencia de redefinición */
         flex-direction: column;
+    }
+
+    nav a{
+        margin-bottom: 1rem;
     }
 
     /* Especificidad (0, 0, 1) */

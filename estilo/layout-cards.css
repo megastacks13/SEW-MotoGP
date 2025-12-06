@@ -37,7 +37,7 @@ main > p{
     font-size: 2rem;
 }
 
-@media (min-width: 320px) and (max-width: 799px) {
+@media (min-width: 320px) and (max-width: 1000px) {
     /*Especificidad: 001*/
     main {
         /* Advertencia de redefinición */
