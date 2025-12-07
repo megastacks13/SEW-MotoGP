@@ -9,10 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b559ed50-ec25-40fe-ae62-aa12adfdae03" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuracion.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/configuracion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuracionVista.php" beforeDir="false" afterPath="$PROJECT_DIR$/configuracionVista.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/estilo/layout-cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/layout-cards.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/estilo/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/estilo/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clasificaciones.php" beforeDir="false" afterPath="$PROJECT_DIR$/clasificaciones.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cronometro.html" beforeDir="false" afterPath="$PROJECT_DIR$/cronometro.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/formulario.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/formulario.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +125,8 @@
       <workItem from="1764774815528" duration="17157000" />
       <workItem from="1764843226060" duration="2201000" />
       <workItem from="1764854617275" duration="1426000" />
-      <workItem from="1765040501573" duration="2204000" />
+      <workItem from="1765040501573" duration="2410000" />
+      <workItem from="1765043034866" duration="11471000" />
     </task>
     <servers />
   </component>

@@ -241,7 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["enviar_respuestas"]))
 
                 <?php
                 $opciones = [
-                        "JavaScript se ejecuta en el servido y PHP en el cliente",
+                        "JavaScript se ejecuta en el servidor y PHP en el cliente",
                         "PHP se ejecuta en el servidor y JavaScript en el cliente",
                         "JavaScript es más preciso",
                         "PHP necesita recargar la página"

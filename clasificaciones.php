@@ -1,38 +1,80 @@
-
 <?php
 
 class Clasificaciones{
+    private $documento;
+    private $xml;
+
     function __construct(){
-        $this-> documento = "xml/circuitoEsquema.xml";
+        $this->documento = $_SERVER['DOCUMENT_ROOT'] . '/xml/circuitoEsquema.xml';
     }
 
     function consultar(){
-        $this-> datos = file_get_contents($this-> documento);
-        if ($this->datos === FALSE) {
-            echo "Error al cargar el archivo XML";
+        if (!file_exists($this->documento)) {
+            return false;
+        }
+
+        $content = file_get_contents($this->documento);
+        if ($content === false) {
+            return false;
+        }
+
+        libxml_use_internal_errors(true);
+        $this->xml = simplexml_load_string($content);
+
+        if ($this->xml === false) {
+            $errors = libxml_get_errors();
+            libxml_clear_errors();
+            return false;
+        }
+
+        return true;
+    }
+
+    function mostrar_ganador() {
+        if (!$this->xml) {
+            echo "<p>Error cargando datos</p>";
             return;
         }
-        $this-> xml = new SimpleXMLElement($this->datos);
-    }
-    function mostrar_ganador() {
-        $piloto = (string)$this->xml->resultados->piloto;
-        $tiempoISO = (string)$this->xml->resultados->tiempo;
+
+        $this->xml->registerXPathNamespace('c', 'http://uniovi.es/circuito');
+        $resultados = $this->xml->xpath('//c:resultados');
+
+        if (empty($resultados)) {
+            echo "<p>No se encontraron resultados</p>";
+            return;
+        }
+
+        $piloto = (string)$resultados[0]->piloto;
+        $tiempoISO = (string)$resultados[0]->tiempo;
 
         preg_match('/PT(\d+)M(\d+\.\d+)S/', $tiempoISO, $matches);
 
-        $min = (int)$matches[1];
-        $segDecimal = (float)$matches[2];
-
-        $seg = floor($segDecimal);
-        $ms = round(($segDecimal - $seg) * 1000);
-
-        $tiempoFormateado = sprintf("%02d:%02d.%03d", $min, $seg, $ms);
-
-        echo "<p>$piloto - $tiempoFormateado</p>";
+        if (isset($matches[1]) && isset($matches[2])) {
+            $min = (int)$matches[1];
+            $segDecimal = (float)$matches[2];
+            $seg = floor($segDecimal);
+            $ms = round(($segDecimal - $seg) * 1000);
+            $tiempoFormateado = sprintf("%02d:%02d.%03d", $min, $seg, $ms);
+            echo "<p>$piloto - $tiempoFormateado</p>";
+        } else {
+            echo "<p>$piloto - $tiempoISO</p>";
+        }
     }
 
-
     function mostrar_ranking() {
+        if (!$this->xml) {
+            echo "<p>Error cargando datos del ranking</p>";
+            return;
+        }
+
+        $this->xml->registerXPathNamespace('c', 'http://uniovi.es/circuito');
+        $pilotos = $this->xml->xpath('//c:rankingMundial/c:piloto');
+
+        if (empty($pilotos)) {
+            echo "<p>No se encontraron datos del ranking</p>";
+            return;
+        }
+
         echo "<table>
         <tr>
             <th id='tabPos' scope='col'>Posición</th>
@@ -41,28 +83,24 @@ class Clasificaciones{
         </tr>";
 
         $pos = 1;
-
-        foreach ($this->xml->rankingMundial->piloto as $piloto) {
-            $nombre = $piloto;
-            $puntos = $piloto['puntos'];
+        foreach ($pilotos as $piloto) {
+            $nombre = (string)$piloto;
+            $puntos = isset($piloto['puntos']) ? (string)$piloto['puntos'] : '0';
 
             echo "<tr>
                 <td headers='tabPos'>{$pos}</td>
                 <td headers='tabNom'>{$nombre}</td>
                 <td headers='tabPuntos'>{$puntos}</td>
-              </tr>";
+            </tr>";
 
             $pos++;
         }
 
         echo "</table>";
     }
-
 }
+
 ?>
-
-
-
 
 <!DOCTYPE HTML>
 <html lang="es">
@@ -80,7 +118,6 @@ class Clasificaciones{
 </head>
 
 <body>
-<!-- Datos con el contenidos que aparece en el navegador -->
 <header>
     <h1><a href="index.html">Moto GP Desktop</a></h1>
     <nav>
@@ -93,16 +130,20 @@ class Clasificaciones{
         <a href="ayuda.html">Ayuda</a>
     </nav>
 </header>
-    <!-- Desmigue de ubicación -->
-    <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Clasificaciones</strong></p>
+
+<p>Estás en: <a href="index.html">Inicio</a> >> <strong>Clasificaciones</strong></p>
+
 <main>
     <h2>Ganador de la carrera</h2>
     <?php
-        $clasificaciones = new Clasificaciones();
-        $clasificaciones->consultar();
-        $clasificaciones-> mostrar_ganador();
+    $clasificaciones = new Clasificaciones();
+    if ($clasificaciones->consultar()) {
+        $clasificaciones->mostrar_ganador();
         echo "<h2>Estado del mundial tras la carrera</h2>";
-        $clasificaciones-> mostrar_ranking();
+        $clasificaciones->mostrar_ranking();
+    } else {
+        echo "<p>Error al cargar los datos de clasificación.</p>";
+    }
     ?>
 </main>
 </body>
