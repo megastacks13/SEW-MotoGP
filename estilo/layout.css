@@ -58,17 +58,19 @@ main > aside:last-of-type a{
     margin: 0 1rem;
 }
 
-/* Especificidad (0, 0, 4) */
+/* Especificidad (0, 0, 3) */
 /* Esto se usa para que al cambiar la imagen no empiece a "saltar" la página por la diferencia de altura de las fotos*/
 article h2+img{
     height: 30rem;
     width:auto;
 }
 
+/* Especificidad (0, 0, 1) */
 img{
     width: 65%;
 }
 
+/* Especificidad (0, 0, 1) */
 video{
     width: 65%;
 }
@@ -85,10 +87,12 @@ th{
     padding: 1em;
 }
 
+/* Especificidad (0, 0, 3) */
 main > section > button{
     margin: 0 1rem 0 0;
 }
 
+/* Especificidad (0, 0, 2) */
 main > div {
     width: 75%;
     height: 25rem;
@@ -107,12 +111,15 @@ main > div {
         flex-direction: column;
     }
 
+    /* Especificidad (0, 0, 2) */
     nav a{
+        /* Advertencia de redefinición */
         margin-bottom: 1rem;
     }
 
     /* Especificidad (0, 0, 1) */
     main > *{
+        /* Advertencia de redefinición */
         margin: 0 2rem;
     }
 
@@ -124,6 +131,7 @@ main > div {
 
     /* Especificidad (0, 0, 1) aunque afecte a dos componentes, son independientes y no anidados */
     video,audio {
+        /* Advertencia de redefinición */
         width: 100%;
         height: auto;
     }
@@ -133,20 +141,28 @@ main > div {
         margin: 1rem 3rem;
     }
 
+    /* Especificidad (0, 0, 3) */
     article h2+img{
+        /* Advertencia de redefinición */
         margin: 0;
+        /* Advertencia de redefinición */
         width: 100%;
         height:auto;
     }
 
+    /* Especificidad (0, 0, 2) */
     main > div {
+        /* Advertencia de redefinición */
         margin:1.5rem;
         padding: 0;
+        /* Advertencia de redefinición */
         width: 90%;
         height: 25rem;
     }
 
+    /* Especificidad (0, 0, 1) */
     img{
+        /* Advertencia de redefinición */
         width: 90%;
     }
 

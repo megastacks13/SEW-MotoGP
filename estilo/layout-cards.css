@@ -1,5 +1,7 @@
 /* Jaime Alonso Fernández - UO294024 */
 /* Estilos específicos para el juego de memoria de MotoGP desktop */
+/*Advertencia de redefinición de fila 0 en 22, 23, 34 y 36 frutos de la aplicación de valores implícitos redefinidos
+en estas filas */
 
 
 /*Especificidad: 001*/
@@ -19,7 +21,9 @@ main > article{
 
 /*Especificidad: 002*/
 main > h2 {
+    /*Advertencia de redefinición (las de fila 0)*/
     grid-column: 1 / -1;
+    /*Advertencia de redefinición (las de fila 0)*/
     grid-row: 1;
     padding: 0;
     margin: 1rem 0 2rem 0;
@@ -27,7 +31,9 @@ main > h2 {
 
 /*Especificidad: 002*/
 main > p{
+    /*Advertencia de redefinición (las de fila 0)*/
     grid-column: 1 / -1;
+    /*Advertencia de redefinición (las de fila 0)*/
     grid-row: 2;
     padding: 0;
     justify-self: center;

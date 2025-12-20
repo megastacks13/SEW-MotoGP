@@ -29,7 +29,7 @@ class Svg(object):
         """
         Crea el elemento raíz, el espacio de nombres y la versión
         """
-        self.raiz = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", version="2.0", viewBox="0 0 1700 800")
+        self.raiz = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", version="1.1", viewBox="0 0 1700 800")
 
     def addRect(self, x, y, width, height, fill, strokeWidth, stroke):
         """
@@ -41,7 +41,7 @@ class Svg(object):
                       width=width,
                       height=height,
                       fill=fill,
-                      strokeWidth=strokeWidth,
+                      **{'stroke-width':strokeWidth},
                       stroke=stroke)
 
     def addCircle(self, cx, cy, r, fill):
@@ -64,7 +64,7 @@ class Svg(object):
                       x2=x2,
                       y2=y2,
                       stroke=stroke,
-                      strokeWidth=strokeWidth)
+                      **{'stroke-width':strokeWidth})
 
     def addPolyline(self, points, stroke, strokeWidth, fill):
         """
@@ -73,7 +73,7 @@ class Svg(object):
         ET.SubElement(self.raiz, 'polyline',
                       points=points,
                       stroke=stroke,
-                      strokeWidth=strokeWidth,
+                      **{'stroke-width':strokeWidth},
                       fill=fill)
 
     def addText(self, texto, x, y, fontFamily, fontSize, style):
@@ -83,8 +83,8 @@ class Svg(object):
         ET.SubElement(self.raiz, 'text',
                       x=x,
                       y=y,
-                      fontFamily=fontFamily,
-                      fontSize=fontSize,
+                      **{'font-family': fontFamily},
+                      **{'font-size': fontSize},
                       style=style).text = texto
 
     def escribir(self, nombreArchivoSVG):

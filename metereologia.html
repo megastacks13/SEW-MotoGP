@@ -59,7 +59,7 @@
     const p1 = primeraSeccion.querySelector('p');
 
     // Rellenamos el contenido
-    h2.textContent = ciudad.getNombreCiudad();
+    h2.textContent = `Tiempo para el circuito de ${ciudad.getNombreCiudad()}`;
     p1.textContent = `Esta ciudad pertenece a ${ciudad.getPaisCiudad()} y su centro está situado en las siguientes coordenadas:`;
     ciudad.writeCoordenadas();
     segundaSeccion.innerHTML += ciudad.getInformacionSecundaria();

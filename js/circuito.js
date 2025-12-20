@@ -53,7 +53,11 @@ class CargadorSVG {
 
     insertarSVG(archivo, domElement) {
         const parser = new DOMParser();
-        $("<svg>").innerHTML(parser.parseFromString(archivo, "image/svg+xml")).after(domElement);
+        const svgDoc = parser.parseFromString(archivo, "image/svg+xml");
+        const svgElement = svgDoc.documentElement;
+
+        // Inserta el SVG justo después del input
+        $(domElement).after(svgElement);
     }
 }
 

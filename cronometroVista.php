@@ -38,6 +38,7 @@
             <button type='submit' name='mostrar'>Mostrar</button>
         </form>
         <?php
+        require_once "php/cronometro.php";
         if (count($_POST)>0) {
             session_start();
 

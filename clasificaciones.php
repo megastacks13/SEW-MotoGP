@@ -77,7 +77,7 @@ class Clasificaciones{
 
         echo "<table>
         <tr>
-            <th id='tabPos' scope='col'>Posición</th>
+            <th id='tabPos' scope='col'>Pos</th>
             <th id='tabNom' scope='col'>Nombre</th>
             <th id='tabPuntos' scope='col'>Puntos</th>
         </tr>";
@@ -138,8 +138,10 @@ class Clasificaciones{
     <?php
     $clasificaciones = new Clasificaciones();
     if ($clasificaciones->consultar()) {
+        echo "<p> El ganador de la carrera de Motegi en el año 2025 ha sido: </p>";
         $clasificaciones->mostrar_ganador();
-        echo "<h2>Estado del mundial tras la carrera</h2>";
+        echo "<h2>Estado del mundial </h2>";
+        echo "<p> El estado del mundial despues de la carrera de Motegi es el siguiente: </p>";
         $clasificaciones->mostrar_ranking();
     } else {
         echo "<p>Error al cargar los datos de clasificación.</p>";
